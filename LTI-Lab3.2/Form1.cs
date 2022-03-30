@@ -41,12 +41,12 @@ namespace LTI_Lab3._2
 
             // ... UTILIZANDO JSON: CRIAR UMA STRING COM O BODY A SER ENVIADO NO POST
 
-            String jsonToSend = "{\"auth\": {\"identity\": {\"methods\": [\"password\"],\"password\": {\"user\": {\"name\": \"admin\",\"domain\": {\"name\": \"Default\"},\"password\": \"123a\"}}}}}";
+            String jsonToSend = "{\"auth\": {\"identity\": {\"methods\": [\"password\"],\"password\": {\"user\": {\"name\": \"admin\",\"domain\": {\"name\": \"Default\"},\"password\": \"devstack\"}}}}}";
 
 
             // ... PEDIDO POST AO API DO KEYSTONE
 
-             responseString = myWebClient.UploadString("http://192.168.38.128/identity/v3/auth/tokens/", jsonToSend);
+             responseString = myWebClient.UploadString("http://127.0.0.1/identity/v3/auth/tokens/", jsonToSend);
 
 
             // ... RETIRAR DOS HEADERS RECEBIDOS NA RESPOSTA O TOKEN
