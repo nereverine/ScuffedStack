@@ -48,8 +48,7 @@ namespace LTI_Lab3._2
         public string unAuthToken { get; private set; } //?????
         public void login()
         {
-            String endereco = textBoxEndereco.Text;
-            String porto = textBoxPorto.Text;
+            String endereco = textBoxEndereco.Text + ":" + textBoxPorto.Text;
             String username = textBoxUsername.Text;
             String password = maskedTextBoxPassword.Text;
             String url = "http://" + endereco + "/identity/v3/auth/tokens/";
@@ -61,6 +60,7 @@ namespace LTI_Lab3._2
 
                 responseString = myWebClient.UploadString(url, json);
                 WebHeaderCollection myWebHeaderCollection = myWebClient.ResponseHeaders;
+                
 
                 for (int i = 0; i < myWebHeaderCollection.Count; i++)
                 {
@@ -69,9 +69,9 @@ namespace LTI_Lab3._2
                         unAuthToken = myWebHeaderCollection.Get(i); // GUARDAR O UNSCOPED TOKEN (APENAS UTILIZADO PARA AUTENTICA��O E CRIA��O DE SCOPED TOKENS), N�O PERMITE ACESSO AOS DETALHES DOS SERVI�OS
                     }
                 }
-                MessageBox.Show(unAuthToken);
+                //MessageBox.Show(unAuthToken);
                 this.Hide();
-                var main = new Main(unAuthToken);
+                var main = new Main(unAuthToken, endereco);
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }
@@ -96,6 +96,11 @@ namespace LTI_Lab3._2
                 }
                 
             }
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
 
         }
     }
