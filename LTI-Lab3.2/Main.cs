@@ -49,5 +49,21 @@ namespace LTI_Lab3._2
             dynamic convertObj = JObject.Parse(responseString);
             user = convertObj.token.user.name;
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
     }
 }
