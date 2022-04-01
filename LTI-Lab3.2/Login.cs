@@ -70,6 +70,10 @@ namespace LTI_Lab3._2
                     }
                 }
                 MessageBox.Show(unAuthToken);
+                this.Hide();
+                var main = new Main(unAuthToken);
+                main.Closed += (s, args) => this.Close();
+                main.Show();
             }
             catch (WebException ex)
             {
