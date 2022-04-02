@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace LTI_Lab3._2
 {
@@ -31,18 +32,33 @@ namespace LTI_Lab3._2
         public void Main_Load(object sender, EventArgs e)
         { 
             GetScopedAuth();
-            PopulateMenu();
+            PopulateMenus();
         }
 
-        private void PopulateMenu()
+        private void PopulateMenus()
         {
             toolStripMenuItem1.Text = user;
+            ListProjects();
+        }
+
+        private void ListProjects()
+        {
+            String url = "http://" + label1.Text + "/identity/v3/auth/projects";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", unscopedToken);
+            var json = myWebClient.DownloadString(url);
+            MessageBox.Show(json);
+            dynamic dynJson = JsonConvert.DeserializeObject(json);
+            foreach (var projects in dynJson)
+            {
+                listBox1.Items.Add(projects.name);
+            }
+
         }
 
         private void GetScopedAuth()
         {
             String url = "http://" + label1.Text + "/identity/v3/auth/tokens";
-            MessageBox.Show(url);
             String json = "{\"auth\":{\"identity\":{\"methods\":[\"token\"],\"token\":{\"id\":" + "\"" + unscopedToken + "\"" + "}},\"scope\":{\"system\":{\"all\":true}}}}";
             var myWebClient = new WebClient();
             responseString = myWebClient.UploadString(url, json);
@@ -50,13 +66,6 @@ namespace LTI_Lab3._2
             user = convertObj.token.user.name;
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var login = new Login();
-            login.Closed += (s, args) => this.Close();
-            login.Show();
-        }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
