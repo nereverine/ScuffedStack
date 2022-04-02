@@ -48,12 +48,20 @@ namespace LTI_Lab3._2
             myWebClient.Headers.Add("X-Auth-Token", unscopedToken);
             var json = myWebClient.DownloadString(url);
             MessageBox.Show(json);
-            dynamic dynJson = JsonConvert.DeserializeObject(json);
-            foreach (var projects in dynJson)
-            {
-                listBox1.Items.Add(projects.name);
-            }
+            //dynamic dynJson = JsonConvert.DeserializeObject(json);
+            //foreach (var projects in dynJson)
+            //{
+            //  listBox1.Items.Add(projects);
+            //}
+            var parsedObject = JObject.Parse(json);
+            //var projects = parsedObject["projects"][0]["name"].ToString();
 
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+            foreach (JObject projects in obj["projects"])
+            {          
+                    string projectName = (string)projects["name"];
+                listBox1.Items.Add(projectName);
+            }
         }
 
         private void GetScopedAuth()
