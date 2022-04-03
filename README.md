@@ -1,5 +1,5 @@
 # ScuffedStack
-![ScuffedStack](/assets/images/ScuffedStack.png)
+![ScuffedStack](/assets/ScuffedStack.png)
 
 ## About
 This project was created as a way to interface with the Devstack API.
