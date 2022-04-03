@@ -36,7 +36,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelProjectDetails = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,6 +73,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(203, 394);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -107,6 +112,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelProjectDetails);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.labelProjectId);
             this.groupBox2.Controls.Add(this.labelNomeProj);
             this.groupBox2.Location = new System.Drawing.Point(256, 34);
             this.groupBox2.Name = "groupBox2";
@@ -116,14 +125,51 @@
             this.groupBox2.Text = "Detalhes";
             this.groupBox2.Visible = false;
             // 
+            // labelProjectId
+            // 
+            this.labelProjectId.AutoSize = true;
+            this.labelProjectId.Location = new System.Drawing.Point(44, 68);
+            this.labelProjectId.Name = "labelProjectId";
+            this.labelProjectId.Size = new System.Drawing.Size(79, 15);
+            this.labelProjectId.TabIndex = 1;
+            this.labelProjectId.Text = "labelProjectId";
+            // 
             // labelNomeProj
             // 
             this.labelNomeProj.AutoSize = true;
-            this.labelNomeProj.Location = new System.Drawing.Point(245, 19);
+            this.labelNomeProj.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNomeProj.Location = new System.Drawing.Point(217, 19);
             this.labelNomeProj.Name = "labelNomeProj";
-            this.labelNomeProj.Size = new System.Drawing.Size(38, 15);
+            this.labelNomeProj.Size = new System.Drawing.Size(72, 30);
             this.labelNomeProj.TabIndex = 0;
             this.labelNomeProj.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Id:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Descrição:";
+            // 
+            // labelProjectDetails
+            // 
+            this.labelProjectDetails.AutoSize = true;
+            this.labelProjectDetails.Location = new System.Drawing.Point(99, 117);
+            this.labelProjectDetails.Name = "labelProjectDetails";
+            this.labelProjectDetails.Size = new System.Drawing.Size(38, 15);
+            this.labelProjectDetails.TabIndex = 4;
+            this.labelProjectDetails.Text = "label5";
             // 
             // Main
             // 
@@ -159,5 +205,9 @@
         private ListBox listBox1;
         private GroupBox groupBox2;
         private Label labelNomeProj;
+        private Label labelProjectId;
+        private Label label4;
+        private Label labelProjectDetails;
+        private Label label3;
     }
 }
