@@ -36,14 +36,17 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelProjectDetails = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelProjectDetails = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +115,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.labelProjectDetails);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
@@ -124,6 +128,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalhes";
             this.groupBox2.Visible = false;
+            // 
+            // labelProjectDetails
+            // 
+            this.labelProjectDetails.AutoSize = true;
+            this.labelProjectDetails.Location = new System.Drawing.Point(99, 117);
+            this.labelProjectDetails.Name = "labelProjectDetails";
+            this.labelProjectDetails.Size = new System.Drawing.Size(38, 15);
+            this.labelProjectDetails.TabIndex = 4;
+            this.labelProjectDetails.Text = "label5";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Descrição:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Id:";
             // 
             // labelProjectId
             // 
@@ -144,32 +175,24 @@
             this.labelNomeProj.TabIndex = 0;
             this.labelNomeProj.Text = "label3";
             // 
-            // label4
+            // groupBox3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 15);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Id:";
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Location = new System.Drawing.Point(18, 207);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(197, 187);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Instancias";
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Descrição:";
-            // 
-            // labelProjectDetails
-            // 
-            this.labelProjectDetails.AutoSize = true;
-            this.labelProjectDetails.Location = new System.Drawing.Point(99, 117);
-            this.labelProjectDetails.Name = "labelProjectDetails";
-            this.labelProjectDetails.Size = new System.Drawing.Size(38, 15);
-            this.labelProjectDetails.TabIndex = 4;
-            this.labelProjectDetails.Text = "label5";
+            this.button1.Location = new System.Drawing.Point(56, 158);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Gerir";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -189,6 +212,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +233,7 @@
         private Label label4;
         private Label labelProjectDetails;
         private Label label3;
+        private GroupBox groupBox3;
+        private Button button1;
     }
 }
