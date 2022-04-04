@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,10 +56,14 @@ namespace LTI_Lab3._2
             String json = "{\"auth\": {\"identity\": {\"methods\": [\"password\"],\"password\": {\"user\": {\"name\": " + "\"" + username + "\"" + ",\"domain\": {\"name\": \"Default\"},\"password\":" + "\"" + password + "\"" + "}}}}}";
             var myWebClient = new WebClient();
 
+            
+
             try
             {
 
                 responseString = myWebClient.UploadString(url, json);
+                dynamic convertObj = JObject.Parse(responseString);
+                string userId = convertObj.token.user.id;
                 WebHeaderCollection myWebHeaderCollection = myWebClient.ResponseHeaders;
                 
 
@@ -71,7 +76,7 @@ namespace LTI_Lab3._2
                 }
                 //MessageBox.Show(unAuthToken);
                 this.Hide();
-                var main = new Main(unAuthToken, endereco);
+                var main = new Main(unAuthToken, endereco, userId, password);
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }

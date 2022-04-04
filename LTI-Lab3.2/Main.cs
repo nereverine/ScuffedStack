@@ -23,13 +23,22 @@ namespace LTI_Lab3._2
         private string user;
         ArrayList projectIds = new ArrayList();
         ArrayList projectDetails = new ArrayList();
+        private string projectId;
+        private string userPassword;
+        private string userId;
+        private string unAuthToken;
+        private string authToken;
+        
 
-        public Main(String unAuthToken, String url)
+        public Main(String unAuthToken, String url, String userId, String password)
         {
             InitializeComponent();
             //label1.Text = unAuthToken;
             label1.Text = url;
             unscopedToken = unAuthToken;
+            userPassword = password;
+            this.userId = userId;
+            this.unAuthToken = unAuthToken;
 
         }
         public void Main_Load(object sender, EventArgs e)
@@ -72,6 +81,7 @@ namespace LTI_Lab3._2
         }
 
         private void GetScopedAuth()
+            //THIS IS CURRENTLY ONLY USED TO GET THE USER NAME
         {
             String url = "http://" + label1.Text + "/identity/v3/auth/tokens";
             String json = "{\"auth\":{\"identity\":{\"methods\":[\"token\"],\"token\":{\"id\":" + "\"" + unscopedToken + "\"" + "}},\"scope\":{\"system\":{\"all\":true}}}}";
@@ -79,7 +89,38 @@ namespace LTI_Lab3._2
             responseString = myWebClient.UploadString(url, json);
             dynamic convertObj = JObject.Parse(responseString);
             user = convertObj.token.user.name;
+            WebHeaderCollection myWebHeaderCollection = myWebClient.ResponseHeaders;
+            for (int i = 0; i < myWebHeaderCollection.Count; i++)
+            {
+                if (myWebHeaderCollection.GetKey(i) == "X-Subject-Token")
+                {
+                  authToken = myWebHeaderCollection.Get(i); 
+                }
+            }
         }
+
+        private String GetScopedProject(String projectId)
+        {
+            String url = "http://" + label1.Text + "/identity/v3/auth/tokens";
+            String json = "{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user\":{\"id\":" + "\"" + userId + "\"" + ",\"password\":" + "\"" + userPassword + "\"" + "}}},\"scope\":{\"project\":{\"id\":" + "\"" + projectId + "\"" + "}}}}";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", authToken);
+            String responseString = myWebClient.UploadString(url, json);
+            String token = "";
+
+            WebHeaderCollection myWebHeaderCollection = myWebClient.ResponseHeaders;
+
+
+            for (int i = 0; i < myWebHeaderCollection.Count; i++)
+            {
+                if (myWebHeaderCollection.GetKey(i) == "X-Subject-Token")
+                {
+                    token = myWebHeaderCollection.Get(i); 
+                }
+            }
+            return token;
+        }
+
 
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +138,8 @@ namespace LTI_Lab3._2
             labelNomeProj.Text = listBox1.SelectedItem.ToString();
             labelProjectId.Text = projectIds[listBox1.SelectedIndex].ToString();
             string details = projectDetails[listBox1.SelectedIndex].ToString(); 
-            if(details == "")
+    
+            if (details == "")
             {
                 labelProjectDetails.Text = "Este projeto não tem descrição";
             }
@@ -105,6 +147,18 @@ namespace LTI_Lab3._2
             {
                 labelProjectDetails.Text = details;
             }
+            String projectScoped = GetScopedProject(labelProjectId.Text);
+            GetProjectInstances(projectScoped);
+        }
+
+        private void GetProjectInstances(string projectScoped)
+        {
+            String url = "http://" + label1.Text + "/compute/v2.1/servers";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectScoped);
+            MessageBox.Show(projectScoped);
+            String responseString = myWebClient.DownloadString(url);
+            MessageBox.Show(responseString);
         }
     }
 }

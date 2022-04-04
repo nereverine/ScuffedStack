@@ -39,12 +39,14 @@
             this.textBoxPorto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 112);
+            this.label1.Location = new System.Drawing.Point(75, 166);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 0;
@@ -53,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 177);
+            this.label2.Location = new System.Drawing.Point(74, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 1;
@@ -65,7 +67,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(56, 9);
+            this.label3.Location = new System.Drawing.Point(60, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 22);
             this.label3.TabIndex = 2;
@@ -74,14 +76,14 @@
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(53, 130);
+            this.textBoxUsername.Location = new System.Drawing.Point(57, 184);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(100, 23);
             this.textBoxUsername.TabIndex = 3;
             // 
             // maskedTextBoxPassword
             // 
-            this.maskedTextBoxPassword.Location = new System.Drawing.Point(53, 195);
+            this.maskedTextBoxPassword.Location = new System.Drawing.Point(56, 227);
             this.maskedTextBoxPassword.Name = "maskedTextBoxPassword";
             this.maskedTextBoxPassword.PasswordChar = '●';
             this.maskedTextBoxPassword.Size = new System.Drawing.Size(100, 23);
@@ -100,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(75, 40);
+            this.label4.Location = new System.Drawing.Point(74, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 6;
@@ -108,7 +110,7 @@
             // 
             // textBoxEndereco
             // 
-            this.textBoxEndereco.Location = new System.Drawing.Point(60, 63);
+            this.textBoxEndereco.Location = new System.Drawing.Point(59, 116);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(100, 23);
             this.textBoxEndereco.TabIndex = 7;
@@ -116,7 +118,7 @@
             // 
             // textBoxPorto
             // 
-            this.textBoxPorto.Location = new System.Drawing.Point(182, 63);
+            this.textBoxPorto.Location = new System.Drawing.Point(181, 116);
             this.textBoxPorto.Name = "textBoxPorto";
             this.textBoxPorto.Size = new System.Drawing.Size(35, 23);
             this.textBoxPorto.TabIndex = 8;
@@ -125,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(166, 66);
+            this.label5.Location = new System.Drawing.Point(165, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(10, 15);
             this.label5.TabIndex = 9;
@@ -134,17 +136,28 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 66);
+            this.label6.Location = new System.Drawing.Point(21, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "http://";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LTI_Lab3._2.Properties.Resources.ScuffedStack;
+            this.pictureBox1.Location = new System.Drawing.Point(74, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(225, 324);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxPorto);
@@ -159,6 +172,7 @@
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +191,6 @@
         private TextBox textBoxPorto;
         private Label label5;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }
