@@ -40,7 +40,22 @@ namespace LTI_Lab3._2
             String responseString = myWebClient.DownloadString(address);
             dynamic convertObj = JObject.Parse(responseString);
             labelInstanceName.Text = convertObj.server.name;
+            processInstanceStatus(convertObj.server.status);
+            labelInstanceImage.Text = convertObj.server.image;
 
+        }
+
+        private void processInstanceStatus(dynamic status)
+        {
+            labelInstanceStatus.Text = status;
+            if(status == "ACTIVE")
+            {
+                labelInstanceStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                labelInstanceStatus.ForeColor = Color.Red;
+            }
 
         }
     }

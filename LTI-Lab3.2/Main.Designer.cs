@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -132,6 +133,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.listBoxInstances);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(18, 207);
@@ -153,7 +155,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(56, 158);
+            this.button1.Location = new System.Drawing.Point(7, 158);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -207,6 +209,17 @@
             this.labelNomeProj.TabIndex = 0;
             this.labelNomeProj.Text = "label3";
             // 
+            // button2
+            // 
+            this.button2.Image = global::LTI_Lab3._2.Properties.Resources.plus_thick;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(88, 158);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Adicionar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,5 +263,6 @@
         private GroupBox groupBox3;
         private Button button1;
         private ListBox listBoxInstances;
+        private Button button2;
     }
 }
