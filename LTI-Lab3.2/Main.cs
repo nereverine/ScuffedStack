@@ -21,13 +21,21 @@ namespace LTI_Lab3._2
         private string unscopedToken;
         private string responseString;
         private string user;
+        private string url;
+        //Projects
         ArrayList projectIds = new ArrayList();
         ArrayList projectDetails = new ArrayList();
         private string projectId;
+        //User credentials;
         private string userPassword;
         private string userId;
+        //Tokens
         private string unAuthToken;
         private string authToken;
+        //Instances
+        ArrayList instanceIds = new ArrayList();
+        ArrayList instanceNames = new ArrayList();
+
         
 
         public Main(String unAuthToken, String url, String userId, String password)
@@ -39,6 +47,7 @@ namespace LTI_Lab3._2
             userPassword = password;
             this.userId = userId;
             this.unAuthToken = unAuthToken;
+            this.url = url;
 
         }
         public void Main_Load(object sender, EventArgs e)
@@ -133,7 +142,9 @@ namespace LTI_Lab3._2
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            instanceNames.Clear();
+            instanceIds.Clear();
+            listBoxInstances.Items.Clear();
             groupBox2.Visible = true;
             labelNomeProj.Text = listBox1.SelectedItem.ToString();
             labelProjectId.Text = projectIds[listBox1.SelectedIndex].ToString();
@@ -149,16 +160,50 @@ namespace LTI_Lab3._2
             }
             String projectScoped = GetScopedProject(labelProjectId.Text);
             GetProjectInstances(projectScoped);
+            
         }
 
         private void GetProjectInstances(string projectScoped)
         {
             String url = "http://" + label1.Text + "/compute/v2.1/servers";
             var myWebClient = new WebClient();
-            myWebClient.Headers.Add("X-Auth-Token", projectScoped);
-            MessageBox.Show(projectScoped);
+            myWebClient.Headers.Add("X-Auth-Token", projectScoped);          
             String responseString = myWebClient.DownloadString(url);
-            MessageBox.Show(responseString);
+
+            var parsedObject = JObject.Parse(responseString);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(responseString);
+            foreach (JObject projects in obj["servers"])
+            {
+                string instanceName = (string)projects["name"];
+                listBoxInstances.Items.Add(instanceName);
+                instanceNames.Add(instanceName);
+            }
+            foreach (JObject projects in obj["servers"])
+            {
+                string instanceId = (string)projects["id"];
+                instanceIds.Add(instanceId);
+            }
+        }
+
+        private void listBoxInstances_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                     
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(instanceIds[listBoxInstances.SelectedIndex].ToString());
+            manageInstance();
+        }
+
+        private void manageInstance()
+        {
+            //this.Hide();
+            var instanceManager = new InstanceManager(authToken, instanceIds[listBoxInstances.SelectedIndex].ToString(), url);
+            //instanceManager.Closed += (s, args) => this.Close();
+            instanceManager.Show();
         }
     }
 }

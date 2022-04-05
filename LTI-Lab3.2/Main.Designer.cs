@@ -36,13 +36,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listBoxInstances = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.labelProjectDetails = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -129,6 +130,37 @@
             this.groupBox2.Text = "Detalhes";
             this.groupBox2.Visible = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.listBoxInstances);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Location = new System.Drawing.Point(18, 207);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(197, 187);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Instancias";
+            // 
+            // listBoxInstances
+            // 
+            this.listBoxInstances.FormattingEnabled = true;
+            this.listBoxInstances.ItemHeight = 15;
+            this.listBoxInstances.Location = new System.Drawing.Point(26, 32);
+            this.listBoxInstances.Name = "listBoxInstances";
+            this.listBoxInstances.Size = new System.Drawing.Size(120, 94);
+            this.listBoxInstances.TabIndex = 1;
+            this.listBoxInstances.SelectedIndexChanged += new System.EventHandler(this.listBoxInstances_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(56, 158);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Gerir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // labelProjectDetails
             // 
             this.labelProjectDetails.AutoSize = true;
@@ -175,25 +207,6 @@
             this.labelNomeProj.TabIndex = 0;
             this.labelNomeProj.Text = "label3";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Location = new System.Drawing.Point(18, 207);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(197, 187);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Instancias";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(56, 158);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Gerir";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,6 +218,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
@@ -235,5 +249,6 @@
         private Label label3;
         private GroupBox groupBox3;
         private Button button1;
+        private ListBox listBoxInstances;
     }
 }
