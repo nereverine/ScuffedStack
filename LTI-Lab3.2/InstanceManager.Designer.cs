@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstanceManager));
             this.labelInstanceName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,9 +39,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
-            this.buttonTurnOn = new System.Windows.Forms.Button();
+            this.pictureBoxTurnOnOff = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).BeginInit();
             this.SuspendLayout();
             // 
             // labelInstanceName
@@ -127,21 +132,35 @@
             this.listBoxAddresses.Size = new System.Drawing.Size(208, 49);
             this.listBoxAddresses.TabIndex = 0;
             // 
-            // buttonTurnOn
+            // pictureBoxTurnOnOff
             // 
-            this.buttonTurnOn.Location = new System.Drawing.Point(666, 37);
-            this.buttonTurnOn.Name = "buttonTurnOn";
-            this.buttonTurnOn.Size = new System.Drawing.Size(75, 23);
-            this.buttonTurnOn.TabIndex = 7;
-            this.buttonTurnOn.Text = "button1";
-            this.buttonTurnOn.UseVisualStyleBackColor = true;
+            this.pictureBoxTurnOnOff.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTurnOnOff.Image")));
+            this.pictureBoxTurnOnOff.Location = new System.Drawing.Point(648, 31);
+            this.pictureBoxTurnOnOff.Name = "pictureBoxTurnOnOff";
+            this.pictureBoxTurnOnOff.Size = new System.Drawing.Size(51, 42);
+            this.pictureBoxTurnOnOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTurnOnOff.TabIndex = 7;
+            this.pictureBoxTurnOnOff.TabStop = false;
+            this.pictureBoxTurnOnOff.Click += new System.EventHandler(this.pictureBoxTurnOnOff_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(623, 79);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 8;
             // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonTurnOn);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.pictureBoxTurnOnOff);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelInstanceImage);
             this.Controls.Add(this.label3);
@@ -154,6 +173,7 @@
             this.Load += new System.EventHandler(this.InstanceManager_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +190,8 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private ListBox listBoxAddresses;
-        private Button buttonTurnOn;
+        private PictureBox pictureBoxTurnOnOff;
+        private System.Windows.Forms.Timer timer1;
+        private ProgressBar progressBar1;
     }
 }
