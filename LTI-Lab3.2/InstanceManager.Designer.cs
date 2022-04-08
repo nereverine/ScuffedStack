@@ -34,6 +34,12 @@
             this.labelInstanceStatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelInstanceImage = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listBoxAddresses = new System.Windows.Forms.ListBox();
+            this.buttonTurnOn = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelInstanceName
@@ -92,11 +98,51 @@
             this.labelInstanceImage.TabIndex = 5;
             this.labelInstanceImage.Text = "label4";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(169, 220);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(232, 184);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Rede";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.listBoxAddresses);
+            this.groupBox2.Location = new System.Drawing.Point(6, 22);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(220, 76);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Endereços";
+            // 
+            // listBoxAddresses
+            // 
+            this.listBoxAddresses.FormattingEnabled = true;
+            this.listBoxAddresses.ItemHeight = 15;
+            this.listBoxAddresses.Location = new System.Drawing.Point(6, 15);
+            this.listBoxAddresses.Name = "listBoxAddresses";
+            this.listBoxAddresses.Size = new System.Drawing.Size(208, 49);
+            this.listBoxAddresses.TabIndex = 0;
+            // 
+            // buttonTurnOn
+            // 
+            this.buttonTurnOn.Location = new System.Drawing.Point(666, 37);
+            this.buttonTurnOn.Name = "buttonTurnOn";
+            this.buttonTurnOn.Size = new System.Drawing.Size(75, 23);
+            this.buttonTurnOn.TabIndex = 7;
+            this.buttonTurnOn.Text = "button1";
+            this.buttonTurnOn.UseVisualStyleBackColor = true;
+            // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonTurnOn);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelInstanceImage);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelInstanceStatus);
@@ -106,6 +152,8 @@
             this.Name = "InstanceManager";
             this.Text = "InstanceManager";
             this.Load += new System.EventHandler(this.InstanceManager_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +167,9 @@
         private Label labelInstanceStatus;
         private Label label3;
         private Label labelInstanceImage;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private ListBox listBoxAddresses;
+        private Button buttonTurnOn;
     }
 }

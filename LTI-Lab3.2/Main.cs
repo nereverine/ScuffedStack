@@ -194,8 +194,15 @@ namespace LTI_Lab3._2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(instanceIds[listBoxInstances.SelectedIndex].ToString());
-            manageInstance();
+            if (listBoxInstances.SelectedIndex == -1)
+            {
+                MessageBox.Show("Tem de selecionar uma instancia primeiro!");
+            }
+            else
+            {
+                MessageBox.Show(instanceIds[listBoxInstances.SelectedIndex].ToString());
+                manageInstance();
+            }
         }
 
         private void manageInstance()

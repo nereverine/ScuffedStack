@@ -1,15 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LTI_Lab3._2
 {
@@ -29,7 +20,6 @@ namespace LTI_Lab3._2
         private void InstanceManager_Load(object sender, EventArgs e)
         {
             getInstanceDetails(instanceId);
-
         }
 
         private void getInstanceDetails(string instanceId)
@@ -39,10 +29,24 @@ namespace LTI_Lab3._2
             myWebClient.Headers.Add("X-Auth-Token", authToken);
             String responseString = myWebClient.DownloadString(address);
             dynamic convertObj = JObject.Parse(responseString);
-            labelInstanceName.Text = convertObj.server.name;
+            labelInstanceName.Text = convertObj.server.name; //show instance name
             processInstanceStatus(convertObj.server.status);
-            labelInstanceImage.Text = convertObj.server.image;
-
+            labelInstanceImage.Text = convertObj.server.image; //show instance image
+            String toGetAddr = convertObj.server.addresses.ToString();
+            MessageBox.Show(toGetAddr);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(toGetAddr);
+            foreach (var x in obj)
+            {
+                string name = x.Key;              
+                JToken value = x.Value;
+                JEnumerable<JToken> results = value.Children();
+                foreach (JToken result in results)
+                {
+                    var addr = result.Value<string>("addr");
+                    var version = result.Value<string>("version");
+                    listBoxAddresses.Items.Add("Rede:" + name + " IPv" + version + " : "+addr);
+                }
+            }
         }
 
         private void processInstanceStatus(dynamic status)
@@ -58,5 +62,7 @@ namespace LTI_Lab3._2
             }
 
         }
+
+        
     }
 }
