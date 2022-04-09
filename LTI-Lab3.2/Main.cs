@@ -212,5 +212,13 @@ namespace LTI_Lab3._2
             //instanceManager.Closed += (s, args) => this.Close();
             instanceManager.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            var instanceAdd = new InstanceAdd(authToken, url, listBox1.SelectedItem.ToString());
+            //instanceManager.Closed += (s, args) => this.Close();
+            instanceAdd.Show();
+        }
     }
 }
