@@ -215,8 +215,9 @@ namespace LTI_Lab3._2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            String projectScoped = GetScopedProject(labelProjectId.Text);
             //this.Hide();
-            var instanceAdd = new InstanceAdd(authToken, url, listBox1.SelectedItem.ToString());
+            var instanceAdd = new InstanceAdd(authToken, url, listBox1.SelectedItem.ToString(), projectScoped);
             //instanceManager.Closed += (s, args) => this.Close();
             instanceAdd.Show();
         }

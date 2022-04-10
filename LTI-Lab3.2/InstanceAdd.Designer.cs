@@ -52,6 +52,17 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBoxFlavorsDetails = new System.Windows.Forms.GroupBox();
+            this.labelVcpu = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.labelDiskSize = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelRam = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelFlavorName = new System.Windows.Forms.Label();
             this.pictureBoxAddFlavor = new System.Windows.Forms.PictureBox();
             this.pictureBoxRemoveFlavor = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -75,6 +86,10 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBoxFlavorsDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddFlavor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemoveFlavor)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -95,14 +110,15 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.ItemSize = new System.Drawing.Size(30, 100);
-            this.tabControl1.Location = new System.Drawing.Point(79, 99);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(482, 314);
+            this.tabControl1.Size = new System.Drawing.Size(600, 314);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -118,7 +134,7 @@
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(374, 306);
+            this.tabPage1.Size = new System.Drawing.Size(492, 306);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalhes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -224,7 +240,7 @@
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(374, 306);
+            this.tabPage2.Size = new System.Drawing.Size(492, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Origem";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -335,6 +351,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBoxFlavorsDetails);
             this.tabPage3.Controls.Add(this.pictureBoxAddFlavor);
             this.tabPage3.Controls.Add(this.pictureBoxRemoveFlavor);
             this.tabPage3.Controls.Add(this.label9);
@@ -343,10 +360,123 @@
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(374, 306);
+            this.tabPage3.Size = new System.Drawing.Size(492, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Flavor";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxFlavorsDetails
+            // 
+            this.groupBoxFlavorsDetails.Controls.Add(this.labelVcpu);
+            this.groupBoxFlavorsDetails.Controls.Add(this.label13);
+            this.groupBoxFlavorsDetails.Controls.Add(this.pictureBox3);
+            this.groupBoxFlavorsDetails.Controls.Add(this.labelDiskSize);
+            this.groupBoxFlavorsDetails.Controls.Add(this.label12);
+            this.groupBoxFlavorsDetails.Controls.Add(this.pictureBox2);
+            this.groupBoxFlavorsDetails.Controls.Add(this.labelRam);
+            this.groupBoxFlavorsDetails.Controls.Add(this.label11);
+            this.groupBoxFlavorsDetails.Controls.Add(this.pictureBox1);
+            this.groupBoxFlavorsDetails.Controls.Add(this.labelFlavorName);
+            this.groupBoxFlavorsDetails.Location = new System.Drawing.Point(377, 74);
+            this.groupBoxFlavorsDetails.Name = "groupBoxFlavorsDetails";
+            this.groupBoxFlavorsDetails.Size = new System.Drawing.Size(109, 205);
+            this.groupBoxFlavorsDetails.TabIndex = 5;
+            this.groupBoxFlavorsDetails.TabStop = false;
+            this.groupBoxFlavorsDetails.Visible = false;
+            // 
+            // labelVcpu
+            // 
+            this.labelVcpu.AutoSize = true;
+            this.labelVcpu.Location = new System.Drawing.Point(68, 158);
+            this.labelVcpu.Name = "labelVcpu";
+            this.labelVcpu.Size = new System.Drawing.Size(44, 15);
+            this.labelVcpu.TabIndex = 9;
+            this.labelVcpu.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(33, 158);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 15);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "vCPU:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(6, 149);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(21, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            // 
+            // labelDiskSize
+            // 
+            this.labelDiskSize.AutoSize = true;
+            this.labelDiskSize.Location = new System.Drawing.Point(68, 116);
+            this.labelDiskSize.Name = "labelDiskSize";
+            this.labelDiskSize.Size = new System.Drawing.Size(44, 15);
+            this.labelDiskSize.TabIndex = 6;
+            this.labelDiskSize.Text = "label12";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(33, 116);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 15);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Disco:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 107);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(21, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelRam
+            // 
+            this.labelRam.AutoSize = true;
+            this.labelRam.Location = new System.Drawing.Point(65, 75);
+            this.labelRam.Name = "labelRam";
+            this.labelRam.Size = new System.Drawing.Size(44, 15);
+            this.labelRam.TabIndex = 3;
+            this.labelRam.Text = "label12";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(33, 75);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 15);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "RAM:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(21, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelFlavorName
+            // 
+            this.labelFlavorName.AutoSize = true;
+            this.labelFlavorName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFlavorName.Location = new System.Drawing.Point(23, 19);
+            this.labelFlavorName.Name = "labelFlavorName";
+            this.labelFlavorName.Size = new System.Drawing.Size(66, 21);
+            this.labelFlavorName.TabIndex = 0;
+            this.labelFlavorName.Text = "label11";
             // 
             // pictureBoxAddFlavor
             // 
@@ -357,6 +487,7 @@
             this.pictureBoxAddFlavor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAddFlavor.TabIndex = 4;
             this.pictureBoxAddFlavor.TabStop = false;
+            this.pictureBoxAddFlavor.Click += new System.EventHandler(this.pictureBoxAddFlavor_Click);
             // 
             // pictureBoxRemoveFlavor
             // 
@@ -367,6 +498,7 @@
             this.pictureBoxRemoveFlavor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRemoveFlavor.TabIndex = 3;
             this.pictureBoxRemoveFlavor.TabStop = false;
+            this.pictureBoxRemoveFlavor.Click += new System.EventHandler(this.pictureBoxRemoveFlavor_Click);
             // 
             // label9
             // 
@@ -395,6 +527,7 @@
             this.listBoxAvailableFlavors.Name = "listBoxAvailableFlavors";
             this.listBoxAvailableFlavors.Size = new System.Drawing.Size(341, 79);
             this.listBoxAvailableFlavors.TabIndex = 1;
+            this.listBoxAvailableFlavors.SelectedIndexChanged += new System.EventHandler(this.listBoxAvailableFlavors_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -412,7 +545,7 @@
             this.listBoxAllocatedFlavor.ItemHeight = 15;
             this.listBoxAllocatedFlavor.Location = new System.Drawing.Point(6, 26);
             this.listBoxAllocatedFlavor.Name = "listBoxAllocatedFlavor";
-            this.listBoxAllocatedFlavor.Size = new System.Drawing.Size(341, 34);
+            this.listBoxAllocatedFlavor.Size = new System.Drawing.Size(341, 19);
             this.listBoxAllocatedFlavor.TabIndex = 0;
             // 
             // tabPage4
@@ -425,7 +558,7 @@
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(374, 306);
+            this.tabPage4.Size = new System.Drawing.Size(492, 306);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rede";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -501,7 +634,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(701, 338);
             this.Controls.Add(this.tabControl1);
             this.Name = "InstanceAdd";
             this.Text = "InstanceAdd";
@@ -517,6 +650,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBoxFlavorsDetails.ResumeLayout(false);
+            this.groupBoxFlavorsDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddFlavor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemoveFlavor)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -571,5 +709,16 @@
         private GroupBox groupBox5;
         private ListBox listBoxAllocatedNetworks;
         private Label label10;
+        private GroupBox groupBoxFlavorsDetails;
+        private Label labelVcpu;
+        private Label label13;
+        private PictureBox pictureBox3;
+        private Label labelDiskSize;
+        private Label label12;
+        private PictureBox pictureBox2;
+        private Label labelRam;
+        private Label label11;
+        private PictureBox pictureBox1;
+        private Label labelFlavorName;
     }
 }
