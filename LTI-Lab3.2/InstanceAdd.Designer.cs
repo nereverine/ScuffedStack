@@ -71,13 +71,23 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBoxAllocatedFlavor = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBoxNetworkDetails = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.listBoxSubnets = new System.Windows.Forms.ListBox();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelIsShared = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labelNetworkName = new System.Windows.Forms.Label();
             this.pictureBoxAddNetwork = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRemoveNetwork = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.listBoxAvailableNetworks = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBoxAllocatedNetworks = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
+            this.pictureBoxRemove = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).BeginInit();
@@ -95,10 +105,13 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBoxNetworkDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddNetwork)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemoveNetwork)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,7 +127,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(600, 314);
+            this.tabControl1.Size = new System.Drawing.Size(485, 314);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -134,7 +147,7 @@
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(492, 306);
+            this.tabPage1.Size = new System.Drawing.Size(377, 306);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalhes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -229,6 +242,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pictureBoxRemove);
+            this.tabPage2.Controls.Add(this.pictureBoxAdd);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
@@ -240,7 +255,7 @@
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(492, 306);
+            this.tabPage2.Size = new System.Drawing.Size(377, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Origem";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -333,11 +348,12 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Image"});
+            "Imagem"});
             this.comboBox1.Location = new System.Drawing.Point(22, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(141, 23);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -360,7 +376,7 @@
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(492, 306);
+            this.tabPage3.Size = new System.Drawing.Size(377, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Flavor";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -389,9 +405,8 @@
             this.labelVcpu.AutoSize = true;
             this.labelVcpu.Location = new System.Drawing.Point(68, 158);
             this.labelVcpu.Name = "labelVcpu";
-            this.labelVcpu.Size = new System.Drawing.Size(44, 15);
+            this.labelVcpu.Size = new System.Drawing.Size(0, 15);
             this.labelVcpu.TabIndex = 9;
-            this.labelVcpu.Text = "label14";
             // 
             // label13
             // 
@@ -417,9 +432,8 @@
             this.labelDiskSize.AutoSize = true;
             this.labelDiskSize.Location = new System.Drawing.Point(68, 116);
             this.labelDiskSize.Name = "labelDiskSize";
-            this.labelDiskSize.Size = new System.Drawing.Size(44, 15);
+            this.labelDiskSize.Size = new System.Drawing.Size(0, 15);
             this.labelDiskSize.TabIndex = 6;
-            this.labelDiskSize.Text = "label12";
             // 
             // label12
             // 
@@ -445,9 +459,8 @@
             this.labelRam.AutoSize = true;
             this.labelRam.Location = new System.Drawing.Point(65, 75);
             this.labelRam.Name = "labelRam";
-            this.labelRam.Size = new System.Drawing.Size(44, 15);
+            this.labelRam.Size = new System.Drawing.Size(0, 15);
             this.labelRam.TabIndex = 3;
-            this.labelRam.Text = "label12";
             // 
             // label11
             // 
@@ -474,9 +487,8 @@
             this.labelFlavorName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelFlavorName.Location = new System.Drawing.Point(23, 19);
             this.labelFlavorName.Name = "labelFlavorName";
-            this.labelFlavorName.Size = new System.Drawing.Size(66, 21);
+            this.labelFlavorName.Size = new System.Drawing.Size(0, 21);
             this.labelFlavorName.TabIndex = 0;
-            this.labelFlavorName.Text = "label11";
             // 
             // pictureBoxAddFlavor
             // 
@@ -550,18 +562,95 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBoxNetworkDetails);
             this.tabPage4.Controls.Add(this.pictureBoxAddNetwork);
-            this.tabPage4.Controls.Add(this.pictureBoxRemoveNetwork);
             this.tabPage4.Controls.Add(this.groupBox6);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.label10);
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(492, 306);
+            this.tabPage4.Size = new System.Drawing.Size(377, 306);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rede";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxNetworkDetails
+            // 
+            this.groupBoxNetworkDetails.Controls.Add(this.label16);
+            this.groupBoxNetworkDetails.Controls.Add(this.listBoxSubnets);
+            this.groupBoxNetworkDetails.Controls.Add(this.labelStatus);
+            this.groupBoxNetworkDetails.Controls.Add(this.label15);
+            this.groupBoxNetworkDetails.Controls.Add(this.labelIsShared);
+            this.groupBoxNetworkDetails.Controls.Add(this.label14);
+            this.groupBoxNetworkDetails.Controls.Add(this.labelNetworkName);
+            this.groupBoxNetworkDetails.Location = new System.Drawing.Point(374, 66);
+            this.groupBoxNetworkDetails.Name = "groupBoxNetworkDetails";
+            this.groupBoxNetworkDetails.Size = new System.Drawing.Size(109, 205);
+            this.groupBoxNetworkDetails.TabIndex = 6;
+            this.groupBoxNetworkDetails.TabStop = false;
+            this.groupBoxNetworkDetails.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 100);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 15);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Subredes:";
+            // 
+            // listBoxSubnets
+            // 
+            this.listBoxSubnets.FormattingEnabled = true;
+            this.listBoxSubnets.ItemHeight = 15;
+            this.listBoxSubnets.Location = new System.Drawing.Point(6, 118);
+            this.listBoxSubnets.Name = "listBoxSubnets";
+            this.listBoxSubnets.Size = new System.Drawing.Size(97, 79);
+            this.listBoxSubnets.TabIndex = 5;
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(65, 75);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(0, 15);
+            this.labelStatus.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 75);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 15);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Estado: ";
+            // 
+            // labelIsShared
+            // 
+            this.labelIsShared.AutoSize = true;
+            this.labelIsShared.Location = new System.Drawing.Point(68, 57);
+            this.labelIsShared.Name = "labelIsShared";
+            this.labelIsShared.Size = new System.Drawing.Size(0, 15);
+            this.labelIsShared.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 57);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 15);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Partilhada?";
+            // 
+            // labelNetworkName
+            // 
+            this.labelNetworkName.AutoSize = true;
+            this.labelNetworkName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNetworkName.Location = new System.Drawing.Point(23, 19);
+            this.labelNetworkName.Name = "labelNetworkName";
+            this.labelNetworkName.Size = new System.Drawing.Size(0, 21);
+            this.labelNetworkName.TabIndex = 0;
             // 
             // pictureBoxAddNetwork
             // 
@@ -572,16 +661,7 @@
             this.pictureBoxAddNetwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAddNetwork.TabIndex = 5;
             this.pictureBoxAddNetwork.TabStop = false;
-            // 
-            // pictureBoxRemoveNetwork
-            // 
-            this.pictureBoxRemoveNetwork.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRemoveNetwork.Image")));
-            this.pictureBoxRemoveNetwork.Location = new System.Drawing.Point(326, 133);
-            this.pictureBoxRemoveNetwork.Name = "pictureBoxRemoveNetwork";
-            this.pictureBoxRemoveNetwork.Size = new System.Drawing.Size(26, 23);
-            this.pictureBoxRemoveNetwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxRemoveNetwork.TabIndex = 4;
-            this.pictureBoxRemoveNetwork.TabStop = false;
+            this.pictureBoxAddNetwork.Click += new System.EventHandler(this.pictureBoxAddNetwork_Click);
             // 
             // groupBox6
             // 
@@ -591,7 +671,7 @@
             this.groupBox6.Size = new System.Drawing.Size(362, 109);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Flavors Disponiveis";
+            this.groupBox6.Text = "Redes Disponiveis";
             // 
             // listBoxAvailableNetworks
             // 
@@ -601,6 +681,7 @@
             this.listBoxAvailableNetworks.Name = "listBoxAvailableNetworks";
             this.listBoxAvailableNetworks.Size = new System.Drawing.Size(330, 79);
             this.listBoxAvailableNetworks.TabIndex = 1;
+            this.listBoxAvailableNetworks.SelectedIndexChanged += new System.EventHandler(this.listBoxAvailableNetworks_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -630,11 +711,44 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Inserir uma ou varias redes";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::LTI_Lab3._2.Properties.Resources.ScuffedStack;
+            this.pictureBox4.Location = new System.Drawing.Point(617, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(72, 53);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBoxAdd
+            // 
+            this.pictureBoxAdd.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAdd.Image")));
+            this.pictureBoxAdd.Location = new System.Drawing.Point(192, 218);
+            this.pictureBoxAdd.Name = "pictureBoxAdd";
+            this.pictureBoxAdd.Size = new System.Drawing.Size(21, 20);
+            this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAdd.TabIndex = 12;
+            this.pictureBoxAdd.TabStop = false;
+            this.pictureBoxAdd.Click += new System.EventHandler(this.pictureBoxAdd_Click);
+            // 
+            // pictureBoxRemove
+            // 
+            this.pictureBoxRemove.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRemove.Image")));
+            this.pictureBoxRemove.Location = new System.Drawing.Point(159, 253);
+            this.pictureBoxRemove.Name = "pictureBoxRemove";
+            this.pictureBoxRemove.Size = new System.Drawing.Size(21, 20);
+            this.pictureBoxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxRemove.TabIndex = 13;
+            this.pictureBoxRemove.TabStop = false;
+            this.pictureBoxRemove.Click += new System.EventHandler(this.pictureBoxRemove_Click);
+            // 
             // InstanceAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 338);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.tabControl1);
             this.Name = "InstanceAdd";
             this.Text = "InstanceAdd";
@@ -661,10 +775,14 @@
             this.groupBox3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBoxNetworkDetails.ResumeLayout(false);
+            this.groupBoxNetworkDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddNetwork)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemoveNetwork)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -703,7 +821,6 @@
         private ListBox listBoxAllocatedFlavor;
         private TabPage tabPage4;
         private PictureBox pictureBoxAddNetwork;
-        private PictureBox pictureBoxRemoveNetwork;
         private GroupBox groupBox6;
         private ListBox listBoxAvailableNetworks;
         private GroupBox groupBox5;
@@ -720,5 +837,16 @@
         private Label label11;
         private PictureBox pictureBox1;
         private Label labelFlavorName;
+        private GroupBox groupBoxNetworkDetails;
+        private ListBox listBoxSubnets;
+        private Label labelStatus;
+        private Label label15;
+        private Label labelIsShared;
+        private Label label14;
+        private Label labelNetworkName;
+        private Label label16;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBoxRemove;
+        private PictureBox pictureBoxAdd;
     }
 }

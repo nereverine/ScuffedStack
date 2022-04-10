@@ -17,17 +17,31 @@ namespace LTI_Lab3._2
     public partial class InstanceAdd : Form
     {
         private String url;
+        private String networkUrl;
         private String projectToken;
         //flavors
         ArrayList flavorIds = new ArrayList();
         ArrayList allocatedFlavor = new ArrayList(); //could be a string
+        //networks
+        ArrayList networksIds = new ArrayList();
+        //private List<String> subnets = new List<string> { };
+        private JArray subnets = new JArray();
+        ArrayList allocatedNetworks = new ArrayList();
+        //images
+        ArrayList imageIds = new ArrayList();
+        ArrayList allocatedImage = new ArrayList(); //could be a string
+
+
         public InstanceAdd(String authToken, String url, String projectName, String projectToken)
         {
             InitializeComponent();
             textBoxProjectName.Text = projectName;
             this.url = url;
             this.projectToken = projectToken;
-
+            int index = url.IndexOf(":");      
+            if (index >= 0)
+                networkUrl = url.Substring(0, index);
+            networkUrl = networkUrl + ":9696";
         }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -45,6 +59,7 @@ namespace LTI_Lab3._2
         private void InstanceAdd_Load(object sender, EventArgs e)
         {
             listFalvors();
+            listNetworks();
         }
 
         private void listFalvors()
@@ -68,6 +83,27 @@ namespace LTI_Lab3._2
             }
 
         }
+        private void listNetworks()
+        {
+            String address = "http://" + networkUrl + "/v2.0/networks";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectToken);
+            var json = myWebClient.DownloadString(address);
+            var parsedObject = JObject.Parse(json);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+
+            foreach (JObject network in obj["networks"])
+            {
+                string networkName = (string)network["name"];
+                listBoxAvailableNetworks.Items.Add(networkName);
+            }
+            foreach (JObject network in obj["networks"])
+            {
+                string flavorId = (string)network["id"];
+                networksIds.Add(flavorId);
+            }
+
+        }
 
         private void listBoxAvailableFlavors_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -86,6 +122,44 @@ namespace LTI_Lab3._2
             labelRam.Text = convertObj.flavor.ram + "MB";
             labelDiskSize.Text = convertObj.flavor.disk.ToString() + "GB";
             labelVcpu.Text = convertObj.flavor.vcpus;
+
+        }
+
+        private void getNetworkDetails(String networkId)
+        {
+            groupBoxNetworkDetails.Visible = true;
+            string address = "http://" + networkUrl + "/v2.0/networks/" + networkId;
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectToken);
+            var json = myWebClient.DownloadString(address);
+            dynamic convertObj = JObject.Parse(json);
+            labelNetworkName.Text = convertObj.network.name;
+            if(convertObj.network.shared == "true")
+            {
+                labelIsShared.Text = "Sim";
+            }
+            else
+            {
+                labelIsShared.Text = "Nao";
+            }
+            labelStatus.Text = convertObj.network.status;
+            subnets = convertObj.network.subnets;
+            fillSubnetsBox();
+            
+        }
+
+        private void fillSubnetsBox()
+        {
+            
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectToken);
+            foreach (String subnetId in subnets)
+            {
+                string address = "http://" + networkUrl + "/v2.0/subnets/" + subnetId;
+                var json = myWebClient.DownloadString(address);
+                dynamic convertObj = JObject.Parse(json);
+                listBoxSubnets.Items.Add(convertObj.subnet.name);
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,6 +167,8 @@ namespace LTI_Lab3._2
             if(tabControl1.SelectedIndex == 2 || tabControl1.SelectedIndex == 3)
             {
                 tabControl1.Size = new Size(600, 314);
+                groupBoxFlavorsDetails.Visible = true;
+                groupBoxNetworkDetails.Visible = true;
             }
             else
             {
@@ -116,10 +192,78 @@ namespace LTI_Lab3._2
         }
 
         private void pictureBoxRemoveFlavor_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(allocatedFlavor[0].ToString());
+        { 
             allocatedFlavor.Clear();
             listBoxAllocatedFlavor.Items.Remove(listBoxAllocatedFlavor.SelectedItem);
+        }
+
+        private void listBoxAvailableNetworks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBoxSubnets.Items.Clear();
+            if (subnets.Count > 0)
+            {
+                subnets.Clear();
+            }
+            getNetworkDetails(networksIds[listBoxAvailableNetworks.SelectedIndex].ToString());
+        }
+
+        private void pictureBoxRemoveNetwork_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBoxAddNetwork_Click(object sender, EventArgs e)
+        {
+            listBoxAllocatedNetworks.Items.Add(listBoxAvailableNetworks.SelectedItem);
+            allocatedNetworks.Add(networksIds[listBoxAvailableNetworks.SelectedIndex].ToString());
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedItem == "Imagem")
+            {
+                listImages();
+            }
+        }
+
+        private void listImages()
+        {
+            String address = "http://" + url + "/image/v2/images";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectToken);
+            var json = myWebClient.DownloadString(address);
+            var parsedObject = JObject.Parse(json);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+            foreach (JObject image in obj["images"])
+            {
+                string imageName = (string)image["name"];
+                listBoxAvailable.Items.Add(imageName);
+            }
+            foreach (JObject image in obj["images"])
+            {
+                string flavorId = (string)image["id"];
+                imageIds.Add(flavorId);
+            }
+        }
+
+        private void pictureBoxAdd_Click(object sender, EventArgs e)
+        {
+            if (listBoxAllocated.Items.Count == 0)
+            {
+                listBoxAllocated.Items.Add(listBoxAvailable.SelectedItem);
+                allocatedImage.Add(imageIds[listBoxAvailable.SelectedIndex].ToString());
+
+            }
+            else
+            {
+                MessageBox.Show("Só pode adicionar uma imagem!");
+            }
+        }
+
+        private void pictureBoxRemove_Click(object sender, EventArgs e)
+        {
+            allocatedImage.Clear();
+            listBoxAllocated.Items.Remove(listBoxAllocated.SelectedItem);
         }
     }
 }
