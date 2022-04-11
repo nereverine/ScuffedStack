@@ -214,6 +214,18 @@ namespace LTI_Lab3._2
 
         private void pictureBoxAddNetwork_Click(object sender, EventArgs e)
         {
+            if(allocatedNetworks.Count > 0)
+            {
+                foreach (String network in listBoxAllocatedNetworks.Items)
+                {
+
+                    if(listBoxAvailableNetworks.SelectedItem == network)
+                    {
+                        MessageBox.Show("Rede já adicionada!");
+                        return;
+                    }
+                }
+            }
             listBoxAllocatedNetworks.Items.Add(listBoxAvailableNetworks.SelectedItem);
             allocatedNetworks.Add(networksIds[listBoxAvailableNetworks.SelectedIndex].ToString());
         }
@@ -248,7 +260,7 @@ namespace LTI_Lab3._2
 
         private void pictureBoxAdd_Click(object sender, EventArgs e)
         {
-            if (listBoxAllocated.Items.Count == 0)
+             if (listBoxAllocated.Items.Count == 0)
             {
                 listBoxAllocated.Items.Add(listBoxAvailable.SelectedItem);
                 allocatedImage.Add(imageIds[listBoxAvailable.SelectedIndex].ToString());
@@ -264,6 +276,93 @@ namespace LTI_Lab3._2
         {
             allocatedImage.Clear();
             listBoxAllocated.Items.Remove(listBoxAllocated.SelectedItem);
+        }
+
+        private void pictureBoxCreate_Click(object sender, EventArgs e)
+        {
+            if (textBoxInstanceName.Text == "")
+            {
+                MessageBox.Show("Não inseriu nome!");
+            }
+            else if (allocatedImage.Count == 0)
+            {
+                MessageBox.Show("Não selecionou imagem!");
+            }
+            else if (allocatedFlavor.Count == 0)
+            {
+                MessageBox.Show("Não selecionou um Flavor!");
+            }
+            else if (allocatedNetworks.Count == 0)
+            {
+                MessageBox.Show("Não selecionou as redes!");
+            }
+            else
+            {
+                createInstance();
+            }
+        }
+
+        private String networksStringBuilder()
+        {
+            String networks = "";
+            if(allocatedNetworks.Count == 1)
+            {
+                networks = "networks\":[{\"uuid\":" + "\"" + allocatedNetworks[0] + "\"" + "}]";
+                return networks;
+            }
+            else
+            {
+                networks = "networks\":[ ";
+                //foreach(String network in allocatedNetworks)
+                //{
+                //networks = networks + "\"uuid\":" + "\"" + network + "\",";
+                //}
+                for (int i = 0; i < allocatedNetworks.Count; i++)
+                {
+                    if (i == allocatedNetworks.Count - 1)
+                    {
+                        networks = networks + "{\"uuid\":" + "\"" + allocatedNetworks[i] + "\"}";
+                    }
+                    else
+                    networks = networks + "{\"uuid\":" + "\"" + allocatedNetworks[0] + "\"},";
+                }
+                //networks = networks + allocatedNetworks[0] + "\"" + "}]";
+                networks = networks  + "]";
+                return networks;
+            }
+        }
+
+        private void createInstance()
+        {
+            MessageBox.Show(networksStringBuilder());
+            String address = "http://" + url + "/compute/v2.1/servers";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectToken);
+            var json = "{\"server\":{\"name\":" + "\"" + textBoxInstanceName.Text + "\"" + ",\"flavorRef\":" + "\"" + allocatedFlavor[0] + "\"" + ",\"imageRef\":" + "\"" + allocatedImage[0] + "\"" + ",\"min_count\":" + "\"1" + "\"" +",\"max_count\":" + "\"" + numericUpDownCount.Value  + "\"" + ",\"" + networksStringBuilder() + "}}";
+            MessageBox.Show(json);
+            var response = myWebClient.UploadString(address, json);
+            MessageBox.Show(response);
+
+        }
+
+        private void formValidator()
+        {
+            if(textBoxInstanceName.Text == "")
+            {
+                MessageBox.Show("Não inseriu nome!");
+            }
+            else if(allocatedImage.Count == 0)
+            {
+                MessageBox.Show("Não selecionou imagem!");
+            }
+            else if(allocatedFlavor.Count == 0)
+            {
+                MessageBox.Show("Não selecionou um Flavor!");
+            }
+            else if(allocatedNetworks.Count == 0)
+            {
+                MessageBox.Show("Não selecionou as redes!");
+            }
         }
     }
 }

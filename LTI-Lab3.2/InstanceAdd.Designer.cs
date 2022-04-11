@@ -41,6 +41,8 @@
             this.textBoxProjectName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBoxRemove = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBoxAvailable = new System.Windows.Forms.ListBox();
@@ -86,12 +88,14 @@
             this.listBoxAllocatedNetworks = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRemove = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCreate = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -110,8 +114,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreate)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -259,6 +262,28 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Origem";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxRemove
+            // 
+            this.pictureBoxRemove.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRemove.Image")));
+            this.pictureBoxRemove.Location = new System.Drawing.Point(159, 253);
+            this.pictureBoxRemove.Name = "pictureBoxRemove";
+            this.pictureBoxRemove.Size = new System.Drawing.Size(21, 20);
+            this.pictureBoxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxRemove.TabIndex = 13;
+            this.pictureBoxRemove.TabStop = false;
+            this.pictureBoxRemove.Click += new System.EventHandler(this.pictureBoxRemove_Click);
+            // 
+            // pictureBoxAdd
+            // 
+            this.pictureBoxAdd.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAdd.Image")));
+            this.pictureBoxAdd.Location = new System.Drawing.Point(192, 218);
+            this.pictureBoxAdd.Name = "pictureBoxAdd";
+            this.pictureBoxAdd.Size = new System.Drawing.Size(21, 20);
+            this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAdd.TabIndex = 12;
+            this.pictureBoxAdd.TabStop = false;
+            this.pictureBoxAdd.Click += new System.EventHandler(this.pictureBoxAdd_Click);
             // 
             // label8
             // 
@@ -721,33 +746,34 @@
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBoxAdd
+            // pictureBoxCreate
             // 
-            this.pictureBoxAdd.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAdd.Image")));
-            this.pictureBoxAdd.Location = new System.Drawing.Point(192, 218);
-            this.pictureBoxAdd.Name = "pictureBoxAdd";
-            this.pictureBoxAdd.Size = new System.Drawing.Size(21, 20);
-            this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAdd.TabIndex = 12;
-            this.pictureBoxAdd.TabStop = false;
-            this.pictureBoxAdd.Click += new System.EventHandler(this.pictureBoxAdd_Click);
+            this.pictureBoxCreate.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCreate.Image")));
+            this.pictureBoxCreate.Location = new System.Drawing.Point(617, 252);
+            this.pictureBoxCreate.Name = "pictureBoxCreate";
+            this.pictureBoxCreate.Size = new System.Drawing.Size(72, 70);
+            this.pictureBoxCreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCreate.TabIndex = 2;
+            this.pictureBoxCreate.TabStop = false;
+            this.pictureBoxCreate.Click += new System.EventHandler(this.pictureBoxCreate_Click);
             // 
-            // pictureBoxRemove
+            // label17
             // 
-            this.pictureBoxRemove.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRemove.Image")));
-            this.pictureBoxRemove.Location = new System.Drawing.Point(159, 253);
-            this.pictureBoxRemove.Name = "pictureBoxRemove";
-            this.pictureBoxRemove.Size = new System.Drawing.Size(21, 20);
-            this.pictureBoxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxRemove.TabIndex = 13;
-            this.pictureBoxRemove.TabStop = false;
-            this.pictureBoxRemove.Click += new System.EventHandler(this.pictureBoxRemove_Click);
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(629, 228);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(46, 21);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Criar";
             // 
             // InstanceAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 338);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.pictureBoxCreate);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.tabControl1);
             this.Name = "InstanceAdd";
@@ -759,6 +785,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -781,9 +809,9 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRemove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreate)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -848,5 +876,7 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBoxRemove;
         private PictureBox pictureBoxAdd;
+        private PictureBox pictureBoxCreate;
+        private Label label17;
     }
 }

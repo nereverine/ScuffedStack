@@ -130,6 +130,7 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalhes";
             this.groupBox2.Visible = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // groupBox3
             // 

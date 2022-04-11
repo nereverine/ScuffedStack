@@ -221,5 +221,10 @@ namespace LTI_Lab3._2
             //instanceManager.Closed += (s, args) => this.Close();
             instanceAdd.Show();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
