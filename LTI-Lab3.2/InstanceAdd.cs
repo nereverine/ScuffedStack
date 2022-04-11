@@ -19,6 +19,7 @@ namespace LTI_Lab3._2
         private String url;
         private String networkUrl;
         private String projectToken;
+        private int counter;
         //flavors
         ArrayList flavorIds = new ArrayList();
         ArrayList allocatedFlavor = new ArrayList(); //could be a string
@@ -58,6 +59,7 @@ namespace LTI_Lab3._2
 
         private void InstanceAdd_Load(object sender, EventArgs e)
         {
+            timer1.Interval = 1000;
             listFalvors();
             listNetworks();
         }
@@ -334,14 +336,16 @@ namespace LTI_Lab3._2
 
         private void createInstance()
         {
-            MessageBox.Show(networksStringBuilder());
+            counter = 12;
             String address = "http://" + url + "/compute/v2.1/servers";
             var myWebClient = new WebClient();
             myWebClient.Headers.Add("X-Auth-Token", projectToken);
             var json = "{\"server\":{\"name\":" + "\"" + textBoxInstanceName.Text + "\"" + ",\"flavorRef\":" + "\"" + allocatedFlavor[0] + "\"" + ",\"imageRef\":" + "\"" + allocatedImage[0] + "\"" + ",\"min_count\":" + "\"1" + "\"" +",\"max_count\":" + "\"" + numericUpDownCount.Value  + "\"" + ",\"" + networksStringBuilder() + "}}";
-            MessageBox.Show(json);
+            this.Hide();
+            var progressBarForm = new ProgressBarForm();
+            progressBarForm.Show();
+            timer1.Start();
             var response = myWebClient.UploadString(address, json);
-            MessageBox.Show(response);
 
         }
 
@@ -363,6 +367,25 @@ namespace LTI_Lab3._2
             {
                 MessageBox.Show("Não selecionou as redes!");
             }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(counter == 0)
+            {
+                this.Show();
+                timer1.Stop();
+            }
+            else
+            {
+                this.Hide();
+            }
+            counter--;
         }
     }
 }

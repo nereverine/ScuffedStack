@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstanceAdd));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -90,6 +91,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCreate = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).BeginInit();
@@ -745,6 +747,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBoxCreate
             // 
@@ -766,6 +769,10 @@
             this.label17.Size = new System.Drawing.Size(46, 21);
             this.label17.TabIndex = 3;
             this.label17.Text = "Criar";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // InstanceAdd
             // 
@@ -878,5 +885,6 @@
         private PictureBox pictureBoxAdd;
         private PictureBox pictureBoxCreate;
         private Label label17;
+        private System.Windows.Forms.Timer timer1;
     }
 }

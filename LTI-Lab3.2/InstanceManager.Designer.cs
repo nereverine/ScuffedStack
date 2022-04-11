@@ -43,9 +43,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // labelInstanceName
@@ -100,9 +102,9 @@
             this.labelInstanceImage.AutoSize = true;
             this.labelInstanceImage.Location = new System.Drawing.Point(77, 118);
             this.labelInstanceImage.Name = "labelInstanceImage";
-            this.labelInstanceImage.Size = new System.Drawing.Size(38, 15);
+            this.labelInstanceImage.Size = new System.Drawing.Size(175, 15);
             this.labelInstanceImage.TabIndex = 5;
-            this.labelInstanceImage.Text = "label4";
+            this.labelInstanceImage.Text = "Imagem provém de um volume";
             // 
             // groupBox1
             // 
@@ -164,11 +166,23 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Ligar/Desligar";
             // 
+            // pictureBoxDelete
+            // 
+            this.pictureBoxDelete.Image = global::LTI_Lab3._2.Properties.Resources.delete;
+            this.pictureBoxDelete.Location = new System.Drawing.Point(648, 118);
+            this.pictureBoxDelete.Name = "pictureBoxDelete";
+            this.pictureBoxDelete.Size = new System.Drawing.Size(51, 42);
+            this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDelete.TabIndex = 10;
+            this.pictureBoxDelete.TabStop = false;
+            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
+            // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBoxDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBoxTurnOnOff);
@@ -185,6 +199,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +220,6 @@
         private System.Windows.Forms.Timer timer1;
         private ProgressBar progressBar1;
         private Label label4;
+        private PictureBox pictureBoxDelete;
     }
 }
