@@ -145,6 +145,7 @@ namespace LTI_Lab3._2
             instanceNames.Clear();
             instanceIds.Clear();
             listBoxInstances.Items.Clear();
+            pictureBox1.Visible = false;
             groupBox2.Visible = true;
             labelNomeProj.Text = listBox1.SelectedItem.ToString();
             labelProjectId.Text = projectIds[listBox1.SelectedIndex].ToString();

@@ -45,10 +45,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -222,11 +224,22 @@
             this.labelNomeProj.TabIndex = 0;
             this.labelNomeProj.Text = "label3";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LTI_Lab3._2.Properties.Resources.ScuffedStack;
+            this.pictureBox1.Location = new System.Drawing.Point(331, 92);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(348, 283);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -242,6 +255,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +280,6 @@
         private Button button1;
         private ListBox listBoxInstances;
         private Button buttonAdd;
+        private PictureBox pictureBox1;
     }
 }

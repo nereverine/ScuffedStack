@@ -9,7 +9,7 @@ namespace LTI_Lab3._2
         private string authToken;
         private string instanceId;
         private string url;
-        int counter=10;
+        int counter = 10;
         public InstanceManager(String authToken, String instanceId, String url)
         {
             InitializeComponent();
@@ -33,13 +33,14 @@ namespace LTI_Lab3._2
             dynamic convertObj = JObject.Parse(responseString);
             labelInstanceName.Text = convertObj.server.name; //show instance name
             processInstanceStatus(convertObj.server.status);
-            if(convertObj.server.image == "")
+            if (convertObj.server.image is JObject)
+                labelInstanceImage.Text = convertObj.server.image.id;//show instance image        
+            else
             {
-                
-            }else
-            {
-                labelInstanceImage.Text = convertObj.server.image.id;//show instance image
             }
+        
+
+
             String toGetAddr = convertObj.server.addresses.ToString();
             MessageBox.Show(toGetAddr);
             JObject obj = JsonConvert.DeserializeObject<JObject>(toGetAddr);
@@ -147,6 +148,13 @@ namespace LTI_Lab3._2
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             progressBarForm.Show();
             this.Close();
+        }
+
+        private void buttonAssociateFloatingIP_Click(object sender, EventArgs e)
+        {
+            var associateFloatingIP = new AssociateFloatingIP(authToken, url, instanceId);
+            //instanceManager.Closed += (s, args) => this.Close();
+            associateFloatingIP.Show();
         }
     }
     }

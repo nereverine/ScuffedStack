@@ -44,6 +44,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
+            this.buttonAssociateFloatingIP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).BeginInit();
@@ -108,6 +109,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonAssociateFloatingIP);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(169, 220);
             this.groupBox1.Name = "groupBox1";
@@ -177,6 +179,16 @@
             this.pictureBoxDelete.TabStop = false;
             this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
+            // buttonAssociateFloatingIP
+            // 
+            this.buttonAssociateFloatingIP.Location = new System.Drawing.Point(6, 155);
+            this.buttonAssociateFloatingIP.Name = "buttonAssociateFloatingIP";
+            this.buttonAssociateFloatingIP.Size = new System.Drawing.Size(126, 23);
+            this.buttonAssociateFloatingIP.TabIndex = 1;
+            this.buttonAssociateFloatingIP.Text = "Associar floating IP";
+            this.buttonAssociateFloatingIP.UseVisualStyleBackColor = true;
+            this.buttonAssociateFloatingIP.Click += new System.EventHandler(this.buttonAssociateFloatingIP_Click);
+            // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -221,5 +233,6 @@
         private ProgressBar progressBar1;
         private Label label4;
         private PictureBox pictureBoxDelete;
+        private Button buttonAssociateFloatingIP;
     }
 }
