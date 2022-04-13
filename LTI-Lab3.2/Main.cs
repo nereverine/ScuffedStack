@@ -263,12 +263,70 @@ namespace LTI_Lab3._2
             imageAdd.Show();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void buttonRemoveImage_Click(object sender, EventArgs e)
         {
             if(listBoxImages.SelectedItem == null)
             {
-                MessageBox.Show("Selecione uma imagem primeiro!");
+                MessageBox.Show("Selecione a imagem a remover!");
             }
+            else
+            {
+
+                String imageName = imageNames[listBoxImages.SelectedIndex].ToString();
+                String imageId = imageIds[listBoxImages.SelectedIndex].ToString();
+                DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar " + imageNames[listBoxImages.SelectedIndex], "Remover?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    imageRemove(imageId);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+        }
+
+        private void imageRemove(string imageId)
+        {
+            if (isProtected(imageId) == true)
+            {
+                MessageBox.Show("A imagem está protegida, nao pode ser removida!");
+            }
+            else
+            {
+                String projectScoped = GetScopedProject(labelProjectId.Text);
+                String address = "http://" + url + "/image/v2/images/" + imageId;
+                var request = WebRequest.Create(address);
+                request.Headers.Add("X-Auth-Token", projectScoped);
+                request.Method = "DELETE";
+                var response = (HttpWebResponse)request.GetResponse();
+            }
+        }
+
+        private bool isProtected(String imageId)
+        {
+            
+            String projectScoped = GetScopedProject(labelProjectId.Text);
+            String address = "http://" + url + "/image/v2/images/" + imageId;
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectScoped);
+            var json = myWebClient.DownloadString(address);
+            dynamic convertObj = JObject.Parse(json);
+            MessageBox.Show(json);
+            if(convertObj.@protected == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

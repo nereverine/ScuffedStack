@@ -81,7 +81,6 @@ namespace LTI_Lab3._2
 
         private void imageCreator()
         {
-            MessageBox.Show("cocka?");
             String name;
             String description="";
             String format = "";

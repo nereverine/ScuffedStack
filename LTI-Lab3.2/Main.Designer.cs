@@ -37,6 +37,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonRemoveImage = new System.Windows.Forms.Button();
+            this.buttonAddImage = new System.Windows.Forms.Button();
+            this.listBoxImages = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxInstances = new System.Windows.Forms.ListBox();
@@ -47,16 +51,13 @@
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.buttonAddImage = new System.Windows.Forms.Button();
-            this.listBoxImages = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -140,6 +141,53 @@
             this.groupBox2.Text = "Detalhes";
             this.groupBox2.Visible = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.buttonRemoveImage);
+            this.groupBox4.Controls.Add(this.buttonAddImage);
+            this.groupBox4.Controls.Add(this.listBoxImages);
+            this.groupBox4.Location = new System.Drawing.Point(226, 207);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(197, 187);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Imagens";
+            // 
+            // buttonRemoveImage
+            // 
+            this.buttonRemoveImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonRemoveImage.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveImage.Image")));
+            this.buttonRemoveImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonRemoveImage.Location = new System.Drawing.Point(6, 158);
+            this.buttonRemoveImage.Name = "buttonRemoveImage";
+            this.buttonRemoveImage.Size = new System.Drawing.Size(84, 23);
+            this.buttonRemoveImage.TabIndex = 3;
+            this.buttonRemoveImage.Text = "Remover";
+            this.buttonRemoveImage.UseVisualStyleBackColor = false;
+            this.buttonRemoveImage.Click += new System.EventHandler(this.buttonRemoveImage_Click);
+            // 
+            // buttonAddImage
+            // 
+            this.buttonAddImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonAddImage.Image = global::LTI_Lab3._2.Properties.Resources.plus_thick;
+            this.buttonAddImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddImage.Location = new System.Drawing.Point(88, 158);
+            this.buttonAddImage.Name = "buttonAddImage";
+            this.buttonAddImage.Size = new System.Drawing.Size(103, 23);
+            this.buttonAddImage.TabIndex = 2;
+            this.buttonAddImage.Text = "Adicionar";
+            this.buttonAddImage.UseVisualStyleBackColor = false;
+            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
+            // 
+            // listBoxImages
+            // 
+            this.listBoxImages.FormattingEnabled = true;
+            this.listBoxImages.ItemHeight = 15;
+            this.listBoxImages.Location = new System.Drawing.Point(26, 32);
+            this.listBoxImages.Name = "listBoxImages";
+            this.listBoxImages.Size = new System.Drawing.Size(120, 94);
+            this.listBoxImages.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -242,58 +290,22 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox4
+            // buttonRefresh
             // 
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.buttonAddImage);
-            this.groupBox4.Controls.Add(this.listBoxImages);
-            this.groupBox4.Location = new System.Drawing.Point(226, 207);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(197, 187);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Imagens";
-            // 
-            // buttonAddImage
-            // 
-            this.buttonAddImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.buttonAddImage.Image = global::LTI_Lab3._2.Properties.Resources.plus_thick;
-            this.buttonAddImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddImage.Location = new System.Drawing.Point(88, 158);
-            this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(103, 23);
-            this.buttonAddImage.TabIndex = 2;
-            this.buttonAddImage.Text = "Adicionar";
-            this.buttonAddImage.UseVisualStyleBackColor = false;
-            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
-            // 
-            // listBoxImages
-            // 
-            this.listBoxImages.FormattingEnabled = true;
-            this.listBoxImages.ItemHeight = 15;
-            this.listBoxImages.Location = new System.Drawing.Point(26, 32);
-            this.listBoxImages.Name = "listBoxImages";
-            this.listBoxImages.Size = new System.Drawing.Size(120, 94);
-            this.listBoxImages.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(6, 158);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.buttonRefresh.Location = new System.Drawing.Point(570, 8);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 6;
+            this.buttonRefresh.Text = "button2";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -309,9 +321,9 @@
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +352,7 @@
         private GroupBox groupBox4;
         private Button buttonAddImage;
         private ListBox listBoxImages;
-        private Button button2;
+        private Button buttonRemoveImage;
+        private Button buttonRefresh;
     }
 }
