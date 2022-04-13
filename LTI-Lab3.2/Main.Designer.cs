@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -46,11 +47,16 @@
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonAddImage = new System.Windows.Forms.Button();
+            this.listBoxImages = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,13 +125,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.labelProjectDetails);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.labelProjectId);
             this.groupBox2.Controls.Add(this.labelNomeProj);
-            this.groupBox2.Location = new System.Drawing.Point(256, 34);
+            this.groupBox2.Location = new System.Drawing.Point(256, 30);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(532, 404);
             this.groupBox2.TabIndex = 4;
@@ -148,6 +155,7 @@
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonAdd.Image = global::LTI_Lab3._2.Properties.Resources.plus_thick;
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.Location = new System.Drawing.Point(88, 158);
@@ -155,7 +163,7 @@
             this.buttonAdd.Size = new System.Drawing.Size(103, 23);
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "Adicionar";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.button2_Click);
             // 
             // listBoxInstances
@@ -234,17 +242,64 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.buttonAddImage);
+            this.groupBox4.Controls.Add(this.listBoxImages);
+            this.groupBox4.Location = new System.Drawing.Point(226, 207);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(197, 187);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Imagens";
+            // 
+            // buttonAddImage
+            // 
+            this.buttonAddImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonAddImage.Image = global::LTI_Lab3._2.Properties.Resources.plus_thick;
+            this.buttonAddImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddImage.Location = new System.Drawing.Point(88, 158);
+            this.buttonAddImage.Name = "buttonAddImage";
+            this.buttonAddImage.Size = new System.Drawing.Size(103, 23);
+            this.buttonAddImage.TabIndex = 2;
+            this.buttonAddImage.Text = "Adicionar";
+            this.buttonAddImage.UseVisualStyleBackColor = false;
+            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
+            // 
+            // listBoxImages
+            // 
+            this.listBoxImages.FormattingEnabled = true;
+            this.listBoxImages.ItemHeight = 15;
+            this.listBoxImages.Location = new System.Drawing.Point(26, 32);
+            this.listBoxImages.Name = "listBoxImages";
+            this.listBoxImages.Size = new System.Drawing.Size(120, 94);
+            this.listBoxImages.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(6, 158);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -256,6 +311,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +337,9 @@
         private ListBox listBoxInstances;
         private Button buttonAdd;
         private PictureBox pictureBox1;
+        private GroupBox groupBox4;
+        private Button buttonAddImage;
+        private ListBox listBoxImages;
+        private Button button2;
     }
 }

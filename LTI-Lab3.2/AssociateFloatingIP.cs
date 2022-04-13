@@ -34,6 +34,23 @@ namespace LTI_Lab3._2
         private void AssociateFloatingIP_Load(object sender, EventArgs e)
         {
             listFloatingIps();
+            listPorts();
+        }
+
+        private void listPorts()
+        {
+            String address = "http://" + networkUrl + "/v2.0/ports";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", token);
+            var json = myWebClient.DownloadString(address);
+            var parsedObject = JObject.Parse(json);
+            dynamic convertObj = JObject.Parse(json);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+            foreach (JObject ip in obj["ports"])
+            {             
+                    string port = convertObj.ports.fixed_ips.ip;
+                    comboBoxPorts.Items.Add(port);           
+            }
         }
 
         private void listFloatingIps()
@@ -45,9 +62,9 @@ namespace LTI_Lab3._2
             var parsedObject = JObject.Parse(json);
             JObject obj = JsonConvert.DeserializeObject<JObject>(json);
             foreach (JObject ip in obj["floatingips"])
-            {
-                string floatingip = (string)ip["floating_ip_address"];
-                comboBoxFloatingIPs.Items.Add(floatingip);
+            {         
+                    string floatingip = (string)ip["floating_ip_address"];
+                    comboBoxFloatingIPs.Items.Add(floatingip);
             }
         }
     }

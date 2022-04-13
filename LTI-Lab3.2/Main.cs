@@ -161,6 +161,7 @@ namespace LTI_Lab3._2
             }
             String projectScoped = GetScopedProject(labelProjectId.Text);
             GetProjectInstances(projectScoped);
+            GetProjectImages(projectScoped);
             
         }
 
@@ -184,6 +185,20 @@ namespace LTI_Lab3._2
                 string instanceId = (string)projects["id"];
                 instanceIds.Add(instanceId);
             }
+        }
+        private void GetProjectImages(String projectScoped)
+        {
+            String address = "http://" + url + "/image/v2/images";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectScoped) ;
+            var json = myWebClient.DownloadString(address);
+            var parsedObject = JObject.Parse(json);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+            foreach (JObject image in obj["images"])
+            {
+                string imageName = (string)image["name"];
+                listBoxImages.Items.Add(imageName);
+            }           
         }
 
         private void listBoxInstances_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,6 +239,18 @@ namespace LTI_Lab3._2
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+            var imageAdd = new ImageAdd();
+            //instanceManager.Closed += (s, args) => this.Close();
+            imageAdd.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
 
         }
