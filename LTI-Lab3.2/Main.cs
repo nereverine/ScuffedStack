@@ -35,7 +35,9 @@ namespace LTI_Lab3._2
         //Instances
         ArrayList instanceIds = new ArrayList();
         ArrayList instanceNames = new ArrayList();
-
+        //Images
+        ArrayList imageIds = new ArrayList();
+        ArrayList imageNames = new ArrayList();
         
 
         public Main(String unAuthToken, String url, String userId, String password)
@@ -144,7 +146,11 @@ namespace LTI_Lab3._2
         {
             instanceNames.Clear();
             instanceIds.Clear();
+            imageNames.Clear();
+            instanceIds.Clear();
+            
             listBoxInstances.Items.Clear();
+            listBoxImages.Items.Clear();
             pictureBox1.Visible = false;
             groupBox2.Visible = true;
             labelNomeProj.Text = listBox1.SelectedItem.ToString();
@@ -198,7 +204,13 @@ namespace LTI_Lab3._2
             {
                 string imageName = (string)image["name"];
                 listBoxImages.Items.Add(imageName);
+                imageNames.Add(imageName);
             }           
+            foreach (JObject image in obj["images"])
+            {
+                string imageId = (string)image["id"];
+                imageIds.Add(imageId);
+            }
         }
 
         private void listBoxInstances_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,14 +257,18 @@ namespace LTI_Lab3._2
 
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
-            var imageAdd = new ImageAdd();
+            String projectScoped = GetScopedProject(labelProjectId.Text);
+            var imageAdd = new ImageAdd(url, projectScoped);
             //instanceManager.Closed += (s, args) => this.Close();
             imageAdd.Show();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            if(listBoxImages.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma imagem primeiro!");
+            }
         }
     }
 }

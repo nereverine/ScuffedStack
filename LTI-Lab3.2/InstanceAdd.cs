@@ -388,5 +388,10 @@ namespace LTI_Lab3._2
             }
             counter--;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
