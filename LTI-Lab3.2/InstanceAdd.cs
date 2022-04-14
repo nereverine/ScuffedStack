@@ -380,7 +380,7 @@ namespace LTI_Lab3._2
             {
                 this.Show();
                 timer1.Stop();
-                MessageBox.Show("Instancia " + textBoxInstanceName + " criada com sucesso!");
+                MessageBox.Show("Instancia " + textBoxInstanceName.Text + " criada com sucesso!");
                 this.Close();
             }
             else

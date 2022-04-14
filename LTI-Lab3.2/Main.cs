@@ -38,6 +38,9 @@ namespace LTI_Lab3._2
         //Images
         ArrayList imageIds = new ArrayList();
         ArrayList imageNames = new ArrayList();
+        //Volumes
+        ArrayList volumeIds = new ArrayList();
+        ArrayList volumeNames = new ArrayList();
         
 
         public Main(String unAuthToken, String url, String userId, String password)
@@ -148,9 +151,12 @@ namespace LTI_Lab3._2
             instanceIds.Clear();
             imageNames.Clear();
             instanceIds.Clear();
+            volumeNames.Clear();
+            volumeIds.Clear();
             
             listBoxInstances.Items.Clear();
             listBoxImages.Items.Clear();
+            listBoxVolumes.Items.Clear();
             pictureBox1.Visible = false;
             groupBox2.Visible = true;
             labelNomeProj.Text = listBox1.SelectedItem.ToString();
@@ -168,6 +174,7 @@ namespace LTI_Lab3._2
             String projectScoped = GetScopedProject(labelProjectId.Text);
             GetProjectInstances(projectScoped);
             GetProjectImages(projectScoped);
+            GetProjectVolumes(projectScoped);
             
         }
 
@@ -211,6 +218,36 @@ namespace LTI_Lab3._2
                 string imageId = (string)image["id"];
                 imageIds.Add(imageId);
             }
+        }
+
+        private void GetProjectVolumes(String projectScoped)
+        {
+            String projectId = projectIds[listBox1.SelectedIndex].ToString();
+            String address = "http://" + url + "/volume/v3/" + projectId + "/volumes";
+            var myWebClient = new WebClient();
+            myWebClient.Headers.Add("X-Auth-Token", projectScoped);
+            var json = myWebClient.DownloadString(address);
+            var parsedObject = JObject.Parse(json);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(json);
+            foreach (JObject volume in obj["volumes"])
+            {
+                string volumeName = (string)volume["name"];
+                if (volumeName == "")
+                {
+                    listBoxVolumes.Items.Add("no name");
+                }
+                else
+                {
+                    listBoxVolumes.Items.Add(volumeName);
+                    volumeNames.Add(volumeName);
+                }
+            }
+            foreach (JObject volume in obj["volumes"])
+            {
+                string volumeId = (string)volume["id"];
+                volumeIds.Add(volumeId);
+            }
+
         }
 
         private void listBoxInstances_SelectedIndexChanged(object sender, EventArgs e)
