@@ -232,9 +232,10 @@ namespace LTI_Lab3._2
             foreach (JObject volume in obj["volumes"])
             {
                 string volumeName = (string)volume["name"];
+                
                 if (volumeName == "")
                 {
-                    listBoxVolumes.Items.Add("no name");
+                    listBoxVolumes.Items.Add((string)volume["id"]);
                 }
                 else
                 {
@@ -364,6 +365,12 @@ namespace LTI_Lab3._2
         {
             
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var volumeAdd = new VolumeAdd(url, labelProjectId.Text, GetScopedProject(labelProjectId.Text));
+            volumeAdd.ShowDialog();
         }
     }
 }
