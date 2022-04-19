@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VolumeAdd));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxVolumeName = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -187,6 +189,10 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Criar Volume";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // VolumeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,8 +211,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxVolumeName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VolumeAdd";
-            this.Text = "VolumeAdd";
+            this.Text = "Adicionar Volume";
             this.Load += new System.EventHandler(this.VolumeAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -231,5 +238,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

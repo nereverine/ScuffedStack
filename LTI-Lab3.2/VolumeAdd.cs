@@ -22,6 +22,7 @@ namespace LTI_Lab3._2
         ArrayList imageNames = new ArrayList();
         ArrayList imageIds = new ArrayList();
         private String imageId;
+        private int counter;
 
         public VolumeAdd(String url, String projectId, String token)
         {
@@ -46,6 +47,8 @@ namespace LTI_Lab3._2
             String name = textBoxVolumeName.Text;
             String description = richTextBoxVolumeDescription.Text;
             int size = (int)numericUpDownSize.Value;
+            counter = 12;
+            timer1.Interval = 1000;
             if (imageId != null)
             {
                 var json = "{\"volume\":{\"size\":" + size + ",\"description\":" + "\"" + description + "\"" + ",\"name\":" + "\"" + name + "\"" + ",\"imageRef\":" + "\"" + imageId + "\"" + ",\"volume_type\":null}}";
@@ -55,11 +58,12 @@ namespace LTI_Lab3._2
                 myWebClient.Headers.Add("Content-Type", "application/json");
                 myWebClient.Headers.Add("User-Agent", "PostmanRuntime/7.29.0");
                 myWebClient.Headers.Add("Accept","*/*");
-                myWebClient.Headers.Add("Accept-Encoding","gzip,deflate,br");           
-                var response = myWebClient.UploadString(address, json);
-                MessageBox.Show("Volume criado");
-                this.Close();
-                
+                myWebClient.Headers.Add("Accept-Encoding","gzip,deflate,br");
+                timer1.Start();
+                var progressForm = new ProgressBarForm();
+                progressForm.ShowDialog();
+                this.Hide();
+                var response = myWebClient.UploadString(address, json);               
             }
             else
             {
@@ -70,10 +74,12 @@ namespace LTI_Lab3._2
                 myWebClient.Headers.Add("User-Agent", "PostmanRuntime/7.29.0");
                 myWebClient.Headers.Add("Accept", "*/*");
                 myWebClient.Headers.Add("Accept-Encoding", "gzip,deflate,br");
-                myWebClient.Headers.Add("X-Auth-Token", token);         
+                myWebClient.Headers.Add("X-Auth-Token", token);
+                timer1.Start();
+                var progressForm = new ProgressBarForm();
+                progressForm.ShowDialog();
+                this.Hide();
                 var response = myWebClient.UploadString(address, json);
-                MessageBox.Show("Volume criado");
-                this.Close();
             }
 
         }
@@ -118,6 +124,21 @@ namespace LTI_Lab3._2
         private void comboBoxImage_SelectedIndexChanged(object sender, EventArgs e)
         {
             imageId = imageIds[comboBoxImage.SelectedIndex].ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (counter != 0)
+            {
+
+                counter--;
+            }
+            else
+            {
+                timer1.Stop();
+                MessageBox.Show("Volume criado com sucesso");
+                this.Close();
+            }
         }
     }
 }

@@ -44,7 +44,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
-            this.buttonAssociateFloatingIP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).BeginInit();
@@ -55,7 +54,7 @@
             // 
             this.labelInstanceName.AutoSize = true;
             this.labelInstanceName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelInstanceName.Location = new System.Drawing.Point(360, 52);
+            this.labelInstanceName.Location = new System.Drawing.Point(214, 52);
             this.labelInstanceName.Name = "labelInstanceName";
             this.labelInstanceName.Size = new System.Drawing.Size(57, 21);
             this.labelInstanceName.TabIndex = 0;
@@ -65,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(289, 9);
+            this.label1.Location = new System.Drawing.Point(161, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 25);
             this.label1.TabIndex = 1;
@@ -109,9 +108,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonAssociateFloatingIP);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(169, 220);
+            this.groupBox1.Location = new System.Drawing.Point(26, 226);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(232, 184);
             this.groupBox1.TabIndex = 6;
@@ -140,7 +138,7 @@
             // pictureBoxTurnOnOff
             // 
             this.pictureBoxTurnOnOff.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTurnOnOff.Image")));
-            this.pictureBoxTurnOnOff.Location = new System.Drawing.Point(648, 31);
+            this.pictureBoxTurnOnOff.Location = new System.Drawing.Point(408, 150);
             this.pictureBoxTurnOnOff.Name = "pictureBoxTurnOnOff";
             this.pictureBoxTurnOnOff.Size = new System.Drawing.Size(51, 42);
             this.pictureBoxTurnOnOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,7 +152,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(623, 79);
+            this.progressBar1.Location = new System.Drawing.Point(383, 198);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(100, 23);
             this.progressBar1.TabIndex = 8;
@@ -162,7 +160,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(633, 9);
+            this.label4.Location = new System.Drawing.Point(393, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 15);
             this.label4.TabIndex = 9;
@@ -171,7 +169,7 @@
             // pictureBoxDelete
             // 
             this.pictureBoxDelete.Image = global::LTI_Lab3._2.Properties.Resources.delete;
-            this.pictureBoxDelete.Location = new System.Drawing.Point(648, 118);
+            this.pictureBoxDelete.Location = new System.Drawing.Point(408, 237);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
             this.pictureBoxDelete.Size = new System.Drawing.Size(51, 42);
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,21 +177,11 @@
             this.pictureBoxDelete.TabStop = false;
             this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
-            // buttonAssociateFloatingIP
-            // 
-            this.buttonAssociateFloatingIP.Location = new System.Drawing.Point(6, 155);
-            this.buttonAssociateFloatingIP.Name = "buttonAssociateFloatingIP";
-            this.buttonAssociateFloatingIP.Size = new System.Drawing.Size(126, 23);
-            this.buttonAssociateFloatingIP.TabIndex = 1;
-            this.buttonAssociateFloatingIP.Text = "Associar floating IP";
-            this.buttonAssociateFloatingIP.UseVisualStyleBackColor = true;
-            this.buttonAssociateFloatingIP.Click += new System.EventHandler(this.buttonAssociateFloatingIP_Click);
-            // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(502, 450);
             this.Controls.Add(this.pictureBoxDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
@@ -205,8 +193,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelInstanceName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstanceManager";
-            this.Text = "InstanceManager";
+            this.Text = "Gestão de Instancia";
             this.Load += new System.EventHandler(this.InstanceManager_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -233,6 +222,5 @@
         private ProgressBar progressBar1;
         private Label label4;
         private PictureBox pictureBoxDelete;
-        private Button buttonAssociateFloatingIP;
     }
 }

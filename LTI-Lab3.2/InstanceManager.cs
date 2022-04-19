@@ -42,7 +42,6 @@ namespace LTI_Lab3._2
 
 
             String toGetAddr = convertObj.server.addresses.ToString();
-            MessageBox.Show(toGetAddr);
             JObject obj = JsonConvert.DeserializeObject<JObject>(toGetAddr);
             foreach (var x in obj)
             {
@@ -74,6 +73,7 @@ namespace LTI_Lab3._2
 
         private void pictureBoxTurnOnOff_Click(object sender, EventArgs e)
         {
+            listBoxAddresses.Items.Clear();
             turnOnOffInstance();
         }
 
@@ -140,14 +140,23 @@ namespace LTI_Lab3._2
 
         private void pictureBoxDelete_Click(object sender, EventArgs e)
         {
+
             var progressBarForm = new ProgressBarForm();
             String address = "http://" + url + "/compute/v2.1/servers/" + instanceId;
             WebRequest request = WebRequest.Create(address);
             request.Headers.Add("x-auth-token", authToken);
             request.Method = "DELETE";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            progressBarForm.Show();
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende remover a instancia" + labelInstanceName.Text, "Remover a instancia", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                progressBarForm.Show();
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
 
         private void buttonAssociateFloatingIP_Click(object sender, EventArgs e)

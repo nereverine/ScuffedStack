@@ -51,7 +51,6 @@
             this.listBoxAllocated = new System.Windows.Forms.ListBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBoxCreateVolume = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -254,7 +253,6 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.numericUpDown1);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.checkBoxCreateVolume);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
@@ -360,16 +358,6 @@
             this.label6.Size = new System.Drawing.Size(205, 21);
             this.label6.TabIndex = 5;
             this.label6.Text = "Tamanho do Volume (GB)";
-            // 
-            // checkBoxCreateVolume
-            // 
-            this.checkBoxCreateVolume.AutoSize = true;
-            this.checkBoxCreateVolume.Location = new System.Drawing.Point(242, 77);
-            this.checkBoxCreateVolume.Name = "checkBoxCreateVolume";
-            this.checkBoxCreateVolume.Size = new System.Drawing.Size(129, 19);
-            this.checkBoxCreateVolume.TabIndex = 4;
-            this.checkBoxCreateVolume.Text = "Criar novo volume?";
-            this.checkBoxCreateVolume.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -783,8 +771,9 @@
             this.Controls.Add(this.pictureBoxCreate);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstanceAdd";
-            this.Text = "InstanceAdd";
+            this.Text = "Adicionar Instancia";
             this.Load += new System.EventHandler(this.InstanceAdd_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -843,7 +832,6 @@
         private ListBox listBoxAllocated;
         private NumericUpDown numericUpDown1;
         private Label label6;
-        private CheckBox checkBoxCreateVolume;
         private ComboBox comboBox1;
         private Label label2;
         private TabPage tabPage3;

@@ -38,14 +38,16 @@
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listBoxVolumes = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.buttonRemoveImage = new System.Windows.Forms.Button();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.listBoxImages = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxInstances = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,13 +57,15 @@
             this.labelProjectId = new System.Windows.Forms.Label();
             this.labelNomeProj = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +154,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Controls.Add(this.pictureBox4);
             this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.listBoxVolumes);
             this.groupBox5.Location = new System.Drawing.Point(436, 207);
@@ -160,17 +164,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Volumes";
             // 
-            // button2
+            // pictureBox4
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(6, 158);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = false;
+            this.pictureBox4.Image = global::LTI_Lab3._2.Properties.Resources.database1;
+            this.pictureBox4.Location = new System.Drawing.Point(148, 22);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
             // 
             // button3
             // 
@@ -196,6 +198,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.pictureBox3);
             this.groupBox4.Controls.Add(this.buttonRemoveImage);
             this.groupBox4.Controls.Add(this.buttonAddImage);
             this.groupBox4.Controls.Add(this.listBoxImages);
@@ -205,6 +208,16 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Imagens";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::LTI_Lab3._2.Properties.Resources.movie;
+            this.pictureBox3.Location = new System.Drawing.Point(148, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
             // 
             // buttonRemoveImage
             // 
@@ -243,6 +256,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.buttonAdd);
             this.groupBox3.Controls.Add(this.listBoxInstances);
             this.groupBox3.Controls.Add(this.button1);
@@ -252,6 +266,16 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Instancias";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LTI_Lab3._2.Properties.Resources.server;
+            this.pictureBox2.Location = new System.Drawing.Point(148, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // buttonAdd
             // 
@@ -326,7 +350,7 @@
             // 
             this.labelNomeProj.AutoSize = true;
             this.labelNomeProj.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelNomeProj.Location = new System.Drawing.Point(217, 19);
+            this.labelNomeProj.Location = new System.Drawing.Point(286, 19);
             this.labelNomeProj.Name = "labelNomeProj";
             this.labelNomeProj.Size = new System.Drawing.Size(72, 30);
             this.labelNomeProj.TabIndex = 0;
@@ -335,35 +359,25 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LTI_Lab3._2.Properties.Resources.ScuffedStack;
-            this.pictureBox1.Location = new System.Drawing.Point(331, 92);
+            this.pictureBox1.Location = new System.Drawing.Point(435, 92);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(348, 283);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(570, 8);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefresh.TabIndex = 6;
-            this.buttonRefresh.Text = "button2";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 450);
-            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -374,8 +388,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -406,10 +423,11 @@
         private Button buttonAddImage;
         private ListBox listBoxImages;
         private Button buttonRemoveImage;
-        private Button buttonRefresh;
         private GroupBox groupBox5;
-        private Button button2;
         private Button button3;
         private ListBox listBoxVolumes;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
     }
 }

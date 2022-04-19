@@ -73,7 +73,6 @@ namespace LTI_Lab3._2
             var myWebClient = new WebClient();
             myWebClient.Headers.Add("X-Auth-Token", unscopedToken);
             var json = myWebClient.DownloadString(url);
-            MessageBox.Show(json);
             var parsedObject = JObject.Parse(json);
             JObject obj = JsonConvert.DeserializeObject<JObject>(json);
             foreach (JObject projects in obj["projects"])
@@ -266,7 +265,6 @@ namespace LTI_Lab3._2
             }
             else
             {
-                MessageBox.Show(instanceIds[listBoxInstances.SelectedIndex].ToString());
                 manageInstance();
             }
         }
@@ -350,7 +348,6 @@ namespace LTI_Lab3._2
             myWebClient.Headers.Add("X-Auth-Token", projectScoped);
             var json = myWebClient.DownloadString(address);
             dynamic convertObj = JObject.Parse(json);
-            MessageBox.Show(json);
             if(convertObj.@protected == false)
             {
                 return false;
