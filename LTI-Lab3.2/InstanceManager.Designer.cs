@@ -44,6 +44,9 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxNameChange = new System.Windows.Forms.TextBox();
+            this.buttonEditName = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnOnOff)).BeginInit();
@@ -177,11 +180,40 @@
             this.pictureBoxDelete.TabStop = false;
             this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nome:";
+            // 
+            // textBoxNameChange
+            // 
+            this.textBoxNameChange.Location = new System.Drawing.Point(77, 147);
+            this.textBoxNameChange.Name = "textBoxNameChange";
+            this.textBoxNameChange.Size = new System.Drawing.Size(100, 23);
+            this.textBoxNameChange.TabIndex = 12;
+            // 
+            // buttonEditName
+            // 
+            this.buttonEditName.Location = new System.Drawing.Point(40, 176);
+            this.buttonEditName.Name = "buttonEditName";
+            this.buttonEditName.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditName.TabIndex = 13;
+            this.buttonEditName.Text = "Alterar";
+            this.buttonEditName.UseVisualStyleBackColor = true;
+            this.buttonEditName.Click += new System.EventHandler(this.button1_Click);
+            // 
             // InstanceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 450);
+            this.Controls.Add(this.buttonEditName);
+            this.Controls.Add(this.textBoxNameChange);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBoxDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
@@ -222,5 +254,8 @@
         private ProgressBar progressBar1;
         private Label label4;
         private PictureBox pictureBoxDelete;
+        private Label label5;
+        private TextBox textBoxNameChange;
+        private Button buttonEditName;
     }
 }

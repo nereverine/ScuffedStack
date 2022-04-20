@@ -262,16 +262,25 @@ namespace LTI_Lab3._2
 
         private void pictureBoxAdd_Click(object sender, EventArgs e)
         {
-             if (listBoxAllocated.Items.Count == 0)
+            if (listBoxAvailable.SelectedItem == null)
             {
-                listBoxAllocated.Items.Add(listBoxAvailable.SelectedItem);
-                allocatedImage.Add(imageIds[listBoxAvailable.SelectedIndex].ToString());
-
+                MessageBox.Show("Nao selecionou a imagem a adicionar!");
             }
             else
             {
-                MessageBox.Show("Só pode adicionar uma imagem!");
+                if (listBoxAllocated.Items.Count == 0)
+                {
+                    listBoxAllocated.Items.Add(listBoxAvailable.SelectedItem);
+                    allocatedImage.Add(imageIds[listBoxAvailable.SelectedIndex].ToString());
+
+                }
+                else
+                {
+                    MessageBox.Show("Só pode adicionar uma imagem!");
+                }
             }
+
+            
         }
 
         private void pictureBoxRemove_Click(object sender, EventArgs e)

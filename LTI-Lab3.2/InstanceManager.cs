@@ -32,6 +32,7 @@ namespace LTI_Lab3._2
             String responseString = myWebClient.DownloadString(address);
             dynamic convertObj = JObject.Parse(responseString);
             labelInstanceName.Text = convertObj.server.name; //show instance name
+            textBoxNameChange.Text = convertObj.server.name;
             processInstanceStatus(convertObj.server.status);
             if (convertObj.server.image is JObject)
                 labelInstanceImage.Text = convertObj.server.image.id;//show instance image        
@@ -164,6 +165,25 @@ namespace LTI_Lab3._2
             var associateFloatingIP = new AssociateFloatingIP(authToken, url, instanceId);
             //instanceManager.Closed += (s, args) => this.Close();
             associateFloatingIP.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(textBoxNameChange.Text == labelInstanceName.Text)
+            {
+                MessageBox.Show("Novo nome é identico ao antigo");
+            }
+            else
+            {
+                String address = "http://" + url + "/compute/v2.1/servers/" + instanceId;
+                String json = "{\"server\":{\"name\": \""+ textBoxNameChange.Text + "\"}}";
+                using (var client = new System.Net.WebClient())
+                {
+                    client.Headers.Add("X-Auth-Token", authToken);
+                    client.UploadString(address, "PUT", json);
+                }
+                MessageBox.Show("Nome alterado com sucesso!");
+            }
         }
     }
     }
