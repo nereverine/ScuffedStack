@@ -185,6 +185,12 @@ namespace LTI_Lab3._2
                 MessageBox.Show("Nome alterado com sucesso!");
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ConsoleViewer console = new ConsoleViewer(instanceId, authToken, url);
+            console.Show();
+        }
     }
     }
 
