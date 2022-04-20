@@ -4,4 +4,7 @@
 ## About
 This project was created as a way to interface with the many APIs that Devstack offers.
 
-It allows a user to manage instances such as add.
+It allows a user to:
+- Manage instances.
+- Add OS Images.
+- Create Volumes.
