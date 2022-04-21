@@ -276,7 +276,7 @@
             // 
             this.groupBox6.Controls.Add(this.radioButtonNo);
             this.groupBox6.Controls.Add(this.radioButtonYes);
-            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox6.Location = new System.Drawing.Point(16, 115);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(200, 67);
@@ -301,6 +301,7 @@
             // radioButtonYes
             // 
             this.radioButtonYes.AutoSize = true;
+            this.radioButtonYes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonYes.Location = new System.Drawing.Point(16, 28);
             this.radioButtonYes.Name = "radioButtonYes";
             this.radioButtonYes.Size = new System.Drawing.Size(61, 29);
@@ -315,7 +316,7 @@
             this.groupBox5.Controls.Add(this.radioButtonPublic);
             this.groupBox5.Controls.Add(this.radioButtonShared);
             this.groupBox5.Controls.Add(this.radioButtonPrivate);
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox5.Location = new System.Drawing.Point(16, 40);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 67);
